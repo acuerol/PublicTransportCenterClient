@@ -29,6 +29,8 @@ public class Bus implements Serializable {
 	private int movementState;
 	private double idealSpeed;
 	private Object nextNode;
+	private double acceleration;
+	
 	/**
 	 * Creates a Bus with all parameters.
 	 * @param id an identifier for the Bus instance
@@ -59,6 +61,20 @@ public class Bus implements Serializable {
 	
 	
 	
+	/**
+	 * @return the acceleration
+	 */
+	public double getAcceleration() {
+		return acceleration;
+	}
+
+	/**
+	 * @param acceleration the acceleration to set
+	 */
+	public void setAcceleration(double acceleration) {
+		this.acceleration = acceleration;
+	}
+
 	@Override
 	public boolean equals(Object obj)
 	{

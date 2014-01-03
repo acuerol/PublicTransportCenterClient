@@ -1,8 +1,6 @@
 package controller.threads;
 
-import controller.CentralSystem;
 import controller.bus.SpeedPositionCalculator;
-import controller.busesWindow.BusesWindowController;
 import model.Bus;
 import model.PublicTransportCenter;
 
@@ -14,14 +12,12 @@ import model.PublicTransportCenter;
 public class BusThread extends Thread {
 	public static final int FREQUENCY = 500;
 	
-	private CentralSystem centralSystem;
 	private PublicTransportCenter pTC;
 	private SpeedPositionCalculator speedPositionCalculator;
 	
 	public BusThread()
 	{
 		pTC = PublicTransportCenter.getPublicTransportCenter();
-		centralSystem = CentralSystem.getCentralSystem();
 		speedPositionCalculator = new SpeedPositionCalculator();
 		
 		System.out.println("BusThread running...");

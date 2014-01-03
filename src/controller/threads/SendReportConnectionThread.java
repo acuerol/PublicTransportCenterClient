@@ -8,14 +8,11 @@ import controller.connectionWindow.ConnectionWindowController;
 
 public class SendReportConnectionThread extends Thread {
 
-	private CentralSystem centralSystem;
-	private PublicTransportCenter pTC;
 	private SendReportConnection reportConnection;
 	private boolean isReporting;
 	
 	public SendReportConnectionThread() {
-		pTC = PublicTransportCenter.getPublicTransportCenter();
-		centralSystem = CentralSystem.getCentralSystem();
+		
 	}
 	
 	private void createReportConnection()
