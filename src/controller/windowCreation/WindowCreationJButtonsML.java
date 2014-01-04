@@ -87,13 +87,12 @@ public class WindowCreationJButtonsML implements MouseListener {
 				
 				if(windowCreationController.checkBusFields(id, driver, plate, route, position))
 				{
-					//System.out.println("Before: " + pTC.getBuses().size());
+//					System.out.println("Before: " + pTC.getBuses().size());
 					if(windowCreationController.addNewBus(id, driver, plate, route, position))
 					{
-						//System.out.println("After: " + pTC.getBuses().size());
+//						System.out.println("After: " + pTC.getBuses().size());
 						Alert.launchInfoMessage("Bus added succefully.", windowCreation);
-						
-						centralSystem.runBusThread();
+
 						busCreationJP.clean();
 					}
 				}
@@ -184,7 +183,8 @@ public class WindowCreationJButtonsML implements MouseListener {
 	}
 	public void generateRandomBuses(int num)
 	{
-		for (int i = 0; i < num; i++) {
+		for (int i = 0; i < num; i++)
+		{
 			String id = RandomClass.getRandomID();
 			String plate = RandomClass.getRandomPlate();
 			

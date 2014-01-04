@@ -103,11 +103,10 @@ public class RandomClass {
 		double dou;
 		
 		max = route.getWay().getDistances().get(route.getWay().getDistances().size() - 1).doubleValue();
-		System.out.println(max);
 		dou = getRandomDouble(0, max);
-		System.out.println(dou);
+		
 		distance = UtilCalc.round(dou, 2);
-		System.out.println(route.getName() + " -- " + distance);
+
 		return distance;
 	}
 }

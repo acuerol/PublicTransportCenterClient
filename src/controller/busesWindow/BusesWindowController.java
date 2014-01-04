@@ -5,7 +5,7 @@ import javax.swing.JTable;
 import model.PublicTransportCenter;
 import util.Alert;
 import view.busesWindow.BusesWindowJF;
-import view.busesWindow.BusesWindowTableModel;
+import view.busesWindow.BusesWindowJTableModel;
 import view.busesWindow.BusesWindowButtonsJP;
 
 /**
@@ -21,13 +21,16 @@ public class BusesWindowController {
 	public BusesWindowController()
 	{
 		pTC = PublicTransportCenter.getPublicTransportCenter();
+		
 		busesWindow = new BusesWindowJF();
 	}
 	
 	public Object[][] generateData()
 	{
 		pTC = PublicTransportCenter.getPublicTransportCenter();
+		
 		int numBuses = pTC.getBuses().size();
+		
 		Object[][] data = new Object[numBuses][8];
 		
 		for(int i = 0 ; i < numBuses ; i++)
@@ -45,15 +48,13 @@ public class BusesWindowController {
 	}
 	
 	public void refreshTable(int selectedRow)
-	{	
-		JTable busesJT = busesWindow.getTableJP().getBusesJT(); 
-		busesJT.setVisible(false);
+	{			
+		JTable busesJT = busesWindow.getTableJP().getBusesJT();
+		BusesWindowJTableModel tableModel = busesWindow.getTableJP().getTableModel();
 		Object[][] data = generateData();
-		String[] columnsNames = {"id", "Driver", "Plate", "Route", "Next Stop Station","State","Speed", "Position"};
-		BusesWindowTableModel busesWindowTableModel = new BusesWindowTableModel(columnsNames, data);
 		
-		//Excepcion muy rara por seleccionar celda mientras refresca.
-		busesJT.setModel(busesWindowTableModel);
+		tableModel.setData(data);
+		busesJT.repaint();
 		
 		busesJT.setColumnSelectionInterval(0, 0);
 		
@@ -61,8 +62,6 @@ public class BusesWindowController {
 		{
 			busesJT.setRowSelectionInterval(selectedRow, selectedRow);
 		}
-		
-		busesJT.setVisible(true);
 	}
 	
 	public BusesWindowJF getBusesWindow() {
@@ -76,6 +75,7 @@ public class BusesWindowController {
 
 	public void sendBusSelected()
 	{
+		pTC = PublicTransportCenter.getPublicTransportCenter();
 		String id = busesWindow.getTableJP().getSelectedBusID();
 		
 		if(!id.equals(""))
@@ -93,9 +93,13 @@ public class BusesWindowController {
 		{
 			Alert.launchErrorMessage("Please select a bus.", busesWindow);
 		}
+		
+		PublicTransportCenter.setPublicTransportCenter(pTC);
 	}
 	
 	public void stopBusSelected() {
+		pTC = PublicTransportCenter.getPublicTransportCenter();
+		
 		String id = busesWindow.getTableJP().getSelectedBusID();
 		
 		if(!id.equals(""))

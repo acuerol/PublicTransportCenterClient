@@ -7,11 +7,11 @@ import javax.swing.table.AbstractTableModel;
  * @author Alexis Cuero Losada
  *
  */
-public class BusesWindowTableModel extends AbstractTableModel {
+public class BusesWindowJTableModel extends AbstractTableModel {
 	private String[] columnNames; 
 	private Object[][] data;
 	
-	public BusesWindowTableModel(String[] columnNames, Object[][] data)
+	public BusesWindowJTableModel(String[] columnNames, Object[][] data)
 	{
 		this.columnNames = columnNames;
 		this.data = data;
@@ -42,4 +42,7 @@ public class BusesWindowTableModel extends AbstractTableModel {
 		return false;
 	}
 	
+	public void setData(Object[][] data) {
+		this.data = data;
+	}
 }

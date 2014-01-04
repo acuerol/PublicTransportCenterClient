@@ -60,6 +60,8 @@ public class WindowCreationController {
 		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 60, tempPosition, false);
 		pTC.addBus(bus);
 
+		PublicTransportCenter.setPublicTransportCenter(pTC);
+		
 		return true;
 	}
 

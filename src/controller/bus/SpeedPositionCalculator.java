@@ -8,25 +8,19 @@ public class SpeedPositionCalculator {
 	public static final int DELTA = 1;
 	public static final double TIME = BusThread.FREQUENCY;
 	
-	public SpeedPositionCalculator() {
-
-	}
-	
-	public void refreshSpeed(Bus bus)
-	{
+	public static void refreshSpeed(Bus bus) {
 		if(Math.abs(Math.ceil(bus.getIdealSpeed() - bus.getSpeed())) > DELTA)
 		{
 			acceleratedMovement(bus);
 		}
 	}
 
-	public void refreshPosition(Bus bus) {
+	public static void refreshPosition(Bus bus) {
 		double position = bus.getPosition() + bus.getSpeed() * TIME * 3.6;
 		bus.setPosition(position);
 	}
 	
-	private void acceleratedMovement(Bus bus)
-	{
+	private static void acceleratedMovement(Bus bus) {
 		double speed = bus.getSpeed() + bus.getAcceleration() * TIME;
 		bus.setSpeed(speed);
 	}

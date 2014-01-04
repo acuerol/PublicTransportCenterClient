@@ -109,13 +109,11 @@ public class CentralSystem {
 		busesWindowController.setJButtonsMouseListener();
 	}
 	
-	public BusesWindowController getBusesWindowController()
-	{
+	public BusesWindowController getBusesWindowController()	{
 		return busesWindowController;
 	}
 	
-	public void runBusThread()
-	{
+	public void runBusThread()	{
 		busThread = new BusThread();
 		busThread.start();
 	}

@@ -13,14 +13,9 @@ public class BusThread extends Thread {
 	public static final int FREQUENCY = 500;
 	
 	private PublicTransportCenter pTC;
-	private SpeedPositionCalculator speedPositionCalculator;
 	
-	public BusThread()
-	{
+	public BusThread() {
 		pTC = PublicTransportCenter.getPublicTransportCenter();
-		speedPositionCalculator = new SpeedPositionCalculator();
-		
-		System.out.println("BusThread running...");
 	}
 	
 	private void refreshBuses() {
@@ -28,11 +23,12 @@ public class BusThread extends Thread {
 		{
 			if(pTC.getBuses() != null)
 			{
-				for (Bus bus : pTC.getBuses()) {
+				for (Bus bus : pTC.getBuses())
+				{
 					if(bus.getState())
 					{
-						speedPositionCalculator.refreshSpeed(bus);
-						speedPositionCalculator.refreshPosition(bus);
+						SpeedPositionCalculator.refreshSpeed(bus);
+						SpeedPositionCalculator.refreshPosition(bus);
 					}	
 				}
 				
@@ -50,6 +46,7 @@ public class BusThread extends Thread {
 	
 	@Override
 	public void run() {
+		System.out.println("BusThread running...");
 		refreshBuses();
 	}
 }

@@ -23,12 +23,12 @@ public class BusesWindowTableJP extends JPanel {
 	private CentralSystem centralSystem;
 	private BusesWindowController busesWindowController;
 	private JScrollPane scroll;
-	private BusesWindowTableModel tableModel;
+	private BusesWindowJTableModel tableModel;
+	private Object[][] data;
 	
 	public BusesWindowTableJP()
 	{
 		centralSystem = CentralSystem.getCentralSystem();
-		busesWindowController = centralSystem.getBusesWindowController();
 		
 		setElements();
 	}
@@ -43,16 +43,20 @@ public class BusesWindowTableJP extends JPanel {
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createTitledBorder("Buses Information"));
 		
-		Object[][] data = new Object[1][8];
+		data = new Object[1][8];
 		String[] columnsNames = {"id", "Driver", "Plate", "Route", "Next Stop Station","State","Speed", "Position"};
 		
-		tableModel = new BusesWindowTableModel(columnsNames, data);
+		tableModel = new BusesWindowJTableModel(columnsNames, data);
 		busesJT = new JTable(tableModel);
 		scroll = new JScrollPane(busesJT);
 		
 		busesJT.setFillsViewportHeight(true);
 		
 		add(scroll, BorderLayout.CENTER);
+	}
+	
+	public BusesWindowJTableModel getTableModel() {
+		return tableModel;
 	}
 	
 	public String getSelectedBusID()
