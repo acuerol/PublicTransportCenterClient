@@ -78,6 +78,7 @@ public class WindowCreationController {
 		Driver driver = new Driver(id, name, lastName);
 		pTC.addDriver(driver);
 		refreshDrivers(name);
+		
 		return true;
 	}
 	

@@ -405,8 +405,4 @@ public class PublicTransportCenter implements Serializable {
 	public void addListBidirectionalEdge() {
 		graph.addListBidirectionalEdge(roads);
 	}
-
-	public Object searchNextNode(Bus bus) {
-		return bus.getRoute().getWay().getNextNode(bus.getPosition());
-	}
 }

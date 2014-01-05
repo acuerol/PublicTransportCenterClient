@@ -26,37 +26,6 @@ public class Way implements Serializable {
 		this.nodes = nodes;
 	}
 	
-	public Object getNextNode(double distance)
-	{		
-		for (int i = 0 ; i < distances.size() - 1 ; i++)
-		{
-			//Ver si es adecuado comparar double de esta manera.
-			if(distances.get(i) <= distance && distances.get(i+1) > distance)
-			{
-				return nodes.get(i+1);
-			}
-		}
-		
-		return null;
-	}
-	
-	public Station getNextStopStation(double distance)
-	{		
-		for (int i = 0 ; i < distances.size() - 1 ; i++)
-		{
-			//Ver si es adecuado comparar double de esta manera.
-			if(distances.get(i) <= distance && distances.get(i+1) > distance)
-			{
-				if(nodes.get(i+1) instanceof Station)
-				{
-					return (Station) nodes.get(i+1);
-				}
-			}
-		}
-		
-		return null;
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
