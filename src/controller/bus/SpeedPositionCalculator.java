@@ -2,26 +2,27 @@ package controller.bus;
 
 import controller.threads.BusThread;
 import model.Bus;
-import model.PublicTransportCenter;
 
 public class SpeedPositionCalculator {
-	public static final int DELTA = 1;
-	public static final double TIME = BusThread.FREQUENCY;
-	
-	public static void refreshSpeed(Bus bus) {
-		if(Math.abs(Math.ceil(bus.getIdealSpeed() - bus.getSpeed())) > DELTA)
-		{
-			acceleratedMovement(bus);
-		}
-	}
+	public static final double SPEED_DELTA = 1.5;
+	public static final double TIME = ((double)(BusThread.FREQUENCY) / 1000);
 
-	public static void refreshPosition(Bus bus) {
-		double position = bus.getPosition() + bus.getSpeed() * TIME * 3.6;
-		bus.setPosition(position);
+	public static double refreshPosition(Bus bus) {
+		double position = bus.getPosition() + (bus.getSpeed() * TIME + ((bus.getAcceleration() / 2) * Math.pow(TIME, 2))) / 1000;
+		
+		return position;
 	}
 	
-	private static void acceleratedMovement(Bus bus) {
+	public static double refreshSpeed(Bus bus) {
 		double speed = bus.getSpeed() + bus.getAcceleration() * TIME;
-		bus.setSpeed(speed);
+		
+		if(bus.getSpeed() < SPEED_DELTA && bus.getMovementState() == 5)
+		{
+			bus.setSpeed(0);
+			bus.setMovementState(0);
+			bus.setAcceleration(0);
+		}
+		
+		return speed;
 	}
 }

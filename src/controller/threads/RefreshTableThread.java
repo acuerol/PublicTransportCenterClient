@@ -32,7 +32,7 @@ public class RefreshTableThread extends Thread{
 				
 				if(!isInterrupted())
 				{
-					sleep(2000);
+					sleep(1000);
 					if(interrupt)
 					{
 						interrupt();

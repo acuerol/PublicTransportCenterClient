@@ -58,7 +58,7 @@ public class SendReportConnection {
 				{
 					pTC = (PublicTransportCenter) serverDataSended.readObject();
 					this.pTC = pTC;
-					PublicTransportCenter.setPublicTransportCenter(pTC);
+					PublicTransportCenter.refreshBusesFromServer(pTC);
 					
 //					this.pTC.setPublicTransportCenter(pTC);
 					

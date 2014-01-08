@@ -57,7 +57,9 @@ public class WindowCreationController {
 		double tempPosition = Double.parseDouble(position);
 		
 		//Corregir velocidad.
-		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 60, tempPosition, false);
+		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, true);
+		bus.setAcceleration(0);
+		bus.setMovementState(1);
 		pTC.addBus(bus);
 
 		PublicTransportCenter.setPublicTransportCenter(pTC);
