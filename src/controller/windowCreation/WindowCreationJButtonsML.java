@@ -171,6 +171,16 @@ public class WindowCreationJButtonsML implements MouseListener {
 		
 	}
 
+	public void generateTestBus()
+	{
+		String id = "001";
+		String plate = "TES-123";
+		
+		String route = "T47A";
+		String position = "0.0";
+		windowCreationController.addNewBus(id, null, plate, route, position);
+	}
+	
 	public void generateRandomDrivers(int num)
 	{
 		for (int i = 0; i < 10; i++) {

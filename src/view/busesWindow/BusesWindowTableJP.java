@@ -43,8 +43,8 @@ public class BusesWindowTableJP extends JPanel {
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createTitledBorder("Buses Information"));
 		
-		data = new Object[1][8];
-		String[] columnsNames = {"id", "Driver", "Plate", "Route", "Next Stop Station","State","Speed", "Position"};
+		data = new Object[1][11];
+		String[] columnsNames = {"id", "Driver", "Plate", "Route", "Next Stop Station","State","Speed", "Position", "Next Node", "Movement State", "Acceleration"};
 		
 		tableModel = new BusesWindowJTableModel(columnsNames, data);
 		busesJT = new JTable(tableModel);

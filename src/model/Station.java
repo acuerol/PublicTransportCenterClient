@@ -131,9 +131,10 @@ public class Station implements Serializable{
 	@Override
 	public String toString()
 	{
-		return "Station [name = " + name + "]";//, children = " + children + "]";
+		return name;
+//		return "Station [name = " + name + "]";//, children = " + children + "]";
 		
 //		return "Station [name = " + name + ", position = " + position.getX() + "," + position.getY() + ", state = "
-	//			+ state + ", children = " + children + "]";
+//				+ state + ", children = " + children + "]";
 	}
 }

@@ -172,9 +172,10 @@ public class Semaphore implements Serializable {
 	@Override
 	public String toString()
 	{
-		return "Semaphore [id = " + id + "]";//, children = " + children + "]";
+		return id;
+//		return "Semaphore [id = " + id + "]";//, children = " + children + "]";
 		
-		//return "Semaphore [id = " + id + ", state = " + state + ", position = " + position.getX() + "," + position.getY() + ", timeRed = " + timeRed
-			//	+ ", timeGreen = " + timeGreen + ", children = " + children + "]";
+//		return "Semaphore [id = " + id + ", state = " + state + ", position = " + position.getX() + "," + position.getY() + ", timeRed = " + timeRed
+//				+ ", timeGreen = " + timeGreen + ", children = " + children + "]";
 	}
 }

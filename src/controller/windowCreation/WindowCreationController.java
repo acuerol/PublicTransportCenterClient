@@ -57,7 +57,7 @@ public class WindowCreationController {
 		double tempPosition = Double.parseDouble(position);
 		
 		//Corregir velocidad.
-		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, true);
+		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, false);
 		bus.setAcceleration(0);
 		bus.setMovementState(1);
 		pTC.addBus(bus);
@@ -148,8 +148,9 @@ public class WindowCreationController {
 		WindowCreationJButtonsML windowCreationBL = new WindowCreationJButtonsML();
 		WindowCreationJTextFieldFL windowCreationFL = new WindowCreationJTextFieldFL();
 		
-		windowCreationBL.generateRandomDrivers(20);
-		windowCreationBL.generateRandomBuses(10);
+		windowCreationBL.generateTestBus();
+//		windowCreationBL.generateRandomDrivers(20);
+//		windowCreationBL.generateRandomBuses(10);
 		windowCreation.addButtonActionListener(windowCreationBL);
 		windowCreation.addJTextFieldFocusListener(windowCreationFL);
 	}

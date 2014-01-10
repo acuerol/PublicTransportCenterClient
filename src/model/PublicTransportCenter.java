@@ -77,6 +77,7 @@ public class PublicTransportCenter implements Serializable {
 		for (Bus bus : buses)
 		{
 			index = PublicTransportCenter.pTC.getBuses().indexOf(bus);
+			
 			if(index == -1)
 			{
 				PublicTransportCenter.pTC.getBuses().add(bus);
@@ -86,6 +87,28 @@ public class PublicTransportCenter implements Serializable {
 				PublicTransportCenter.pTC.getBuses().get(index).setMovementState(bus.getMovementState());
 				PublicTransportCenter.pTC.getBuses().get(index).setNextStopStation(bus.getNextStopStation());
 				PublicTransportCenter.pTC.getBuses().get(index).setNextNode(bus.getNextNode());
+			}
+		}
+		
+		PublicTransportCenter.pTC.setSemaphores(pTC.getSemaphores());
+	}
+	
+	public static synchronized void refreshBusesFromClient(PublicTransportCenter pTC)
+	{
+		ArrayList<Bus> buses = pTC.getBuses();
+		int index = 0;
+		
+		for (Bus bus : buses)
+		{
+			index = PublicTransportCenter.pTC.getBuses().indexOf(bus);
+			
+			if(index == -1)
+			{
+				PublicTransportCenter.pTC.getBuses().add(bus);
+			}else
+			{
+				PublicTransportCenter.pTC.getBuses().get(index).setSpeed(bus.getSpeed());
+				PublicTransportCenter.pTC.getBuses().get(index).setMovementState(bus.getMovementState());
 			}
 		}
 	}

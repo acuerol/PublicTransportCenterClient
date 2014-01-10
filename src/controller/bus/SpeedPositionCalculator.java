@@ -16,13 +16,6 @@ public class SpeedPositionCalculator {
 	public static double refreshSpeed(Bus bus) {
 		double speed = bus.getSpeed() + bus.getAcceleration() * TIME;
 		
-		if(bus.getSpeed() < SPEED_DELTA && bus.getMovementState() == 5)
-		{
-			bus.setSpeed(0);
-			bus.setMovementState(0);
-			bus.setAcceleration(0);
-		}
-		
 		return speed;
 	}
 }
