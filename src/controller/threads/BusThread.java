@@ -13,7 +13,8 @@ import model.Station;
  */
 public class BusThread extends Thread {
 	public static final int FREQUENCY = 500;
-	public static final int STOP_TIME = 20 * 1000 / FREQUENCY;
+	public static final int STOP_TIME = 5 * 1000 / FREQUENCY;
+//	public static final int STOP_TIME = 20 * 1000 / FREQUENCY;
 	
 	private PublicTransportCenter pTC;
 	
@@ -32,6 +33,7 @@ public class BusThread extends Thread {
 				{
 					if(bus.getState())
 					{
+//						System.out.println(bus.getMovementState());
 						bus.setPosition(SpeedPositionCalculator.refreshPosition(bus));
 						bus.setSpeed(SpeedPositionCalculator.refreshSpeed(bus));
 						
@@ -47,35 +49,39 @@ public class BusThread extends Thread {
 						{
 							if(bus.getMovementState() == 0 || bus.getMovementState() == -1)
 							{
-//								System.out.println("Bus Thread set speed station 0");
 								bus.setMovementState(-1);
 								bus.setSpeed(0);
 								
 								if(bus.getStopTime() < STOP_TIME)
 								{
-//									System.out.println("Counting seconds");
+//									System.out.println("Stop in station.");
 									bus.setStopTime(bus.getStopTime() + 1);
 								} else
 								{
+//									System.out.println("Running again...");
 									bus.setStopTime(0);
-									bus.setMovementState(2);
+									bus.setMovementState(5);
 								}
 							}
 						} else
 						{
-							if(bus.getMovementState() == 0 || bus.getMovementState() == -2)
+							if(bus.getNextNode() instanceof Semaphore)
 							{
-//								System.out.println("Bus Thread set speed semaphore 0");
-								bus.setSpeed(0);
-								bus.setMovementState(-2);
-								
-								if(((Semaphore)(bus.getNextNode())).getState())
+								if(bus.getMovementState() == 0 || bus.getMovementState() == -2)
 								{
-									bus.setMovementState(2);
+									int index = pTC.getSemaphores().lastIndexOf(bus.getNextNode());
+									Semaphore semaphore = pTC.getSemaphores().get(index);
+									
+									bus.setSpeed(0);
+									bus.setMovementState(-2);
+									
+									if(semaphore.getState())
+									{
+										bus.setMovementState(5);
+									}
 								}
 							}
 						}
-						
 					}	
 				}
 				

@@ -59,17 +59,7 @@ public class SendReportConnection {
 					pTC = (PublicTransportCenter) serverDataSended.readObject();
 					this.pTC = pTC;
 					PublicTransportCenter.refreshBusesFromServer(pTC);
-					
-//					this.pTC.setPublicTransportCenter(pTC);
-					
-//					for (Bus bus : pTC.getBuses()) {
-//						if(bus.getNextStopStation() != null)
-//						{
-//							System.out.println(bus.getNextStopStation());
-//						}
-//					}
-					
-//					System.out.println("Report sended succefully.");
+				
 					return true;
 				}
 				

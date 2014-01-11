@@ -58,8 +58,7 @@ public class WindowCreationController {
 		
 		//Corregir velocidad.
 		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, false);
-		bus.setAcceleration(0);
-		bus.setMovementState(1);
+		
 		pTC.addBus(bus);
 
 		PublicTransportCenter.setPublicTransportCenter(pTC);

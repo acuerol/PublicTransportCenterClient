@@ -2,6 +2,7 @@ package controller.busesWindow;
 
 import javax.swing.JTable;
 
+import model.Bus;
 import model.PublicTransportCenter;
 import util.Alert;
 import view.busesWindow.BusesWindowJF;
@@ -68,13 +69,11 @@ public class BusesWindowController {
 		return busesWindow;
 	}
 	
-	public void refreshBuses()
-	{
+	public void refreshBuses() {
 		refreshTable(-1);
 	}
 
-	public void sendBusSelected()
-	{
+	public void sendBusSelected() {
 		pTC = PublicTransportCenter.getPublicTransportCenter();
 		String id = busesWindow.getTableJP().getSelectedBusID();
 		
@@ -83,13 +82,11 @@ public class BusesWindowController {
 			if(!pTC.getBusByID(id).getState())
 			{
 				pTC.getBusByID(id).setState(true);
-			}
-			else
+			} else
 			{
 				Alert.launchErrorMessage("The bus is running.", busesWindow);
 			}
-		}
-		else
+		} else
 		{
 			Alert.launchErrorMessage("Please select a bus.", busesWindow);
 		}

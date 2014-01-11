@@ -84,9 +84,9 @@ public class PublicTransportCenter implements Serializable {
 			}else
 			{
 				PublicTransportCenter.pTC.getBuses().get(index).setAcceleration(bus.getAcceleration());
-				PublicTransportCenter.pTC.getBuses().get(index).setMovementState(bus.getMovementState());
 				PublicTransportCenter.pTC.getBuses().get(index).setNextStopStation(bus.getNextStopStation());
 				PublicTransportCenter.pTC.getBuses().get(index).setNextNode(bus.getNextNode());
+				PublicTransportCenter.pTC.getBuses().get(index).setMovementState(bus.getMovementState());
 			}
 		}
 		
