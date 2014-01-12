@@ -1,4 +1,4 @@
-package view.map;
+package view.graphicSystem;
 
 import java.awt.FlowLayout;
 import java.awt.event.MouseListener;

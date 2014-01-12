@@ -106,6 +106,11 @@ public class WindowCreationJButtonsML implements MouseListener {
 								centralSystem.createBusesWindowController();
 								centralSystem.cretaeRefreshTableThread();
 								centralSystem.startRefreshTableThread();
+							} else {
+								if(sourceJB.equals(buttonsJP.getShowGraphicSystemJB())) {
+									centralSystem.createGraphicSystemController();
+									centralSystem.createRefreshSystemGraphicThread();
+								}
 							}
 						}
 					}

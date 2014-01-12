@@ -8,7 +8,9 @@ import org.jvnet.substance.skin.BusinessBlackSteelSkin;
 import controller.busesWindow.BusesWindowController;
 import controller.connection.InitialValuesConnection;
 import controller.connectionWindow.ConnectionWindowController;
+import controller.graphicSystem.GraphicSystemController;
 import controller.threads.BusThread;
+import controller.threads.RefreshSystemGraphicThread;
 import controller.threads.SendReportConnectionThread;
 import controller.threads.RefreshTableThread;
 import controller.windowCreation.WindowCreationController;
@@ -25,10 +27,12 @@ public class CentralSystem {
 	private WindowCreationController windowCreationController;
 	private BusesWindowController busesWindowController;
 	private InitialValuesConnection initialValuesConnection;
+	private GraphicSystemController graphicSystemController;
 	private BusThread busThread;
 	private RefreshTableThread refreshTableThread;
 	private SendReportConnectionThread reportConnectionThread;
-
+	private RefreshSystemGraphicThread refreshSystemGraphicThread;
+	
 	private static CentralSystem centralSystem;
 
 	/**
@@ -54,6 +58,17 @@ public class CentralSystem {
 		return centralSystem;
 	}
 
+	public void createRefreshSystemGraphicThread()
+	{
+		refreshSystemGraphicThread = new RefreshSystemGraphicThread();
+		refreshSystemGraphicThread.start();
+	}
+	
+	public void createGraphicSystemController() {
+		graphicSystemController = new GraphicSystemController();
+		graphicSystemController.getGraphicSystemJF().setJComboBoxItemListener();
+	}
+	
 	/**
 	 * Creates a ReportConnectionThread instance and start to send reports.
 	 */
@@ -79,7 +94,7 @@ public class CentralSystem {
 	public void createConnectionWindowController() {
 		connectionWindowController = new ConnectionWindowController();
 		connectionWindowController.getConnectionWindow()
-				.setJButtonsActionListeners();
+				.setJButtonsMouseListeners();
 	}
 
 	/**
@@ -162,6 +177,13 @@ public class CentralSystem {
 			connectionWindowController.getConnectionWindow().getMainJP()
 					.addTextInformationJTA("Error loading initial values.");
 		}
+	}
+
+	/**
+	 * @return the graphicSystemController
+	 */
+	public GraphicSystemController getGraphicSystemController() {
+		return graphicSystemController;
 	}
 
 	@Override

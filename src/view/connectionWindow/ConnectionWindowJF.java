@@ -53,7 +53,7 @@ public class ConnectionWindowJF extends JFrame {
 		add(buttonsJP, BorderLayout.SOUTH);
 	}
 
-	public void setJButtonsActionListeners() {
+	public void setJButtonsMouseListeners() {
 		ConnectionWindowJButtonsML mouseListener = new ConnectionWindowJButtonsML();
 		buttonsJP.setJButtonsMouseListener(mouseListener);
 	}

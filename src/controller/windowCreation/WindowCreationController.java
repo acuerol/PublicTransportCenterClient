@@ -1,6 +1,8 @@
 package controller.windowCreation;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import javax.swing.JFrame;
 
@@ -57,7 +59,8 @@ public class WindowCreationController {
 		double tempPosition = Double.parseDouble(position);
 
 		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, false);
-
+		bus.setStartTime(GregorianCalendar.getInstance());
+		System.out.println(bus.getStartTime());
 		if(!pTC.getBuses().contains(bus))
 		{
 			pTC.addBus(bus);

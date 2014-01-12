@@ -2,7 +2,9 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import util.UtilCalc;
 
@@ -22,13 +24,13 @@ public class Bus implements Serializable, Comparable<Bus> {
 	private Driver driver;
 	private String id;
 	private Station nextStopStation;
-	private Date nextStopTime;
+	private Calendar nextStopTime;
 	private Object nextNode;
 	private String plate;
 	private double position;
 	private Route route;
 	private double speed;
-	private Date startTime;
+	private Calendar startTime;
 	private boolean state;
 	private int movementState;
 	private double acceleration;
@@ -69,8 +71,8 @@ public class Bus implements Serializable, Comparable<Bus> {
 		this.state = state;
 
 		driver = new Driver("Not assigned", "Not assigned", "Not assigned");
-		startTime = new Date();
-		nextStopTime = new Date();
+		startTime = new GregorianCalendar();
+		nextStopTime = new GregorianCalendar();
 		acceleration = 0;
 		movementState = 99;
 		stopTime = 0;
@@ -106,8 +108,8 @@ public class Bus implements Serializable, Comparable<Bus> {
 		this.acceleration = acceleration;
 	}
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	public void setStartTime(Calendar calendar) {
+		this.startTime = calendar;
 	}
 
 	public int getMovementState() {
@@ -151,7 +153,7 @@ public class Bus implements Serializable, Comparable<Bus> {
 	 * 
 	 * @return the date until the next stop.
 	 */
-	public Date getNextStopTime() {
+	public Calendar getNextStopTime() {
 		return nextStopTime;
 	}
 
@@ -196,7 +198,7 @@ public class Bus implements Serializable, Comparable<Bus> {
 	 * 
 	 * @return the Bus start date.
 	 */
-	public Date getStartTime() {
+	public Calendar getStartTime() {
 		return startTime;
 	}
 
@@ -235,7 +237,7 @@ public class Bus implements Serializable, Comparable<Bus> {
 	 * @param nextStopTime
 	 *            the date until the next stop station.
 	 */
-	public void setNextStopTime(Date nextStopTime) {
+	public void setNextStopTime(Calendar nextStopTime) {
 		this.nextStopTime = nextStopTime;
 	}
 

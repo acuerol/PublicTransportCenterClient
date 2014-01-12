@@ -1,21 +1,23 @@
-package view.map;
+package view.graphicSystem;
 
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
-public class MapJF extends JFrame {
+import controller.graphicSystem.GraphicSystemJComboBoxItemListener;
+
+public class GraphicSystemJF extends JFrame {
 
 	private ButtonsJP buttonsJP;
 	private MapJP mapJP;
 	private BarJP barJP;
 
-	public MapJF() {
+	public GraphicSystemJF() {
 		setTitle("System Map");
 		setSize(400, 400);
 		setApareance();
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
 
@@ -51,4 +53,8 @@ public class MapJF extends JFrame {
 		return barJP;
 	}
 
+	public void setJComboBoxItemListener() {
+		GraphicSystemJComboBoxItemListener itemListener = new GraphicSystemJComboBoxItemListener();
+		barJP.getRoutesJCB().addItemListener(itemListener);
+	}
 }
