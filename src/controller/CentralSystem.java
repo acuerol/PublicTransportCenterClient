@@ -17,7 +17,7 @@ import model.PublicTransportCenter;
 /**
  * 
  * @author Alexis Cuero Losada
- *
+ * 
  */
 public class CentralSystem {
 
@@ -28,143 +28,142 @@ public class CentralSystem {
 	private BusThread busThread;
 	private RefreshTableThread refreshTableThread;
 	private SendReportConnectionThread reportConnectionThread;
-	
-	private PublicTransportCenter pTC;
+
 	private static CentralSystem centralSystem;
-	
+
 	/**
 	 * CentralSystem constructor with the JFrame apareance.
 	 */
 	private CentralSystem() {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		SubstanceLookAndFeel.setSkin(new BusinessBlackSteelSkin());
-		pTC = PublicTransportCenter.getPublicTransportCenter();
 	}
-	
+
 	/**
-	 * Creates the PublicTransportCenter instance if this hasn't been create else return the instance.
-	 * @return the PublicTransportCenter instance if this has been already create else create this.
+	 * Creates the PublicTransportCenter instance if this hasn't been create
+	 * else return the instance.
+	 * 
+	 * @return the PublicTransportCenter instance if this has been already
+	 *         create else create this.
 	 */
-	public static synchronized CentralSystem getCentralSystem()
-	{
-		if(centralSystem == null)
-		{
+	public static synchronized CentralSystem getCentralSystem() {
+		if (centralSystem == null) {
 			centralSystem = new CentralSystem();
 		}
-		
+
 		return centralSystem;
 	}
-	
+
 	/**
 	 * Creates a ReportConnectionThread instance and start to send reports.
 	 */
-	public void createReportConnectionThread()
-	{
+	public void createReportConnectionThread() {
 		reportConnectionThread = new SendReportConnectionThread();
 		reportConnectionThread.start();
 		reportConnectionThread.startToReport();
 	}
-	
+
 	/**
 	 * Returns the ReportConnectionThread instance.
+	 * 
 	 * @return the ReportConnectionThread instance.
 	 */
-	public SendReportConnectionThread getReportConnectionThread()
-	{
+	public SendReportConnectionThread getReportConnectionThread() {
 		return reportConnectionThread;
 	}
-	
+
 	/**
-	 * Creates a ConnectionWindowController instance and set the listeners for the JButtons on this.
+	 * Creates a ConnectionWindowController instance and set the listeners for
+	 * the JButtons on this.
 	 */
-	public void createConnectionWindowController()
-	{
+	public void createConnectionWindowController() {
 		connectionWindowController = new ConnectionWindowController();
-		connectionWindowController.getConnectionWindow().setJButtonsActionListeners();
+		connectionWindowController.getConnectionWindow()
+				.setJButtonsActionListeners();
 	}
-	
+
 	/**
 	 * Returns the ConnectionWindowController instance creates in the system.
+	 * 
 	 * @return the ConnectionWindowController instance creates in the system.
 	 */
-	public ConnectionWindowController getConnectionWindowController()
-	{
-		return connectionWindowController; 
+	public ConnectionWindowController getConnectionWindowController() {
+		return connectionWindowController;
 	}
-	
-	public void createWindowCreationController()
-	{
+
+	public void createWindowCreationController() {
 		windowCreationController = new WindowCreationController();
 		windowCreationController.setJButtonsMouseListener();
 	}
-	
-	public WindowCreationController getWindowCreationController()
-	{
+
+	public WindowCreationController getWindowCreationController() {
 		return windowCreationController;
 	}
-	
-	public void createBusesWindowController()
-	{
+
+	public void createBusesWindowController() {
 		busesWindowController = new BusesWindowController();
 		busesWindowController.setJButtonsMouseListener();
 	}
-	
-	public BusesWindowController getBusesWindowController()	{
+
+	public BusesWindowController getBusesWindowController() {
 		return busesWindowController;
 	}
-	
-	public void runBusThread()	{
+
+	public void runBusThread() {
 		busThread = new BusThread();
 		busThread.start();
 	}
-	
-	public void cretaeRefreshTableThread() 
-	{
+
+	public void cretaeRefreshTableThread() {
 		refreshTableThread = new RefreshTableThread();
 	}
-	
-	public void startRefreshTableThread()
-	{
+
+	public void startRefreshTableThread() {
 		refreshTableThread.start();
 	}
-	
-	public void interruptRefreshTableThread()
-	{
+
+	public void interruptRefreshTableThread() {
 		refreshTableThread.setInterrupt();
 	}
-	
-	public RefreshTableThread getRefreshTableThread()
-	{
+
+	public RefreshTableThread getRefreshTableThread() {
 		return refreshTableThread;
 	}
 
-	public void sendInitialValuesRequest()
-	{
-		PublicTransportCenter pTC = null;
-		connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("-----------------------");
-		connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("Try connect.");
-		connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("-----------------------");
-		
-		initialValuesConnection = new InitialValuesConnection(connectionWindowController.getConnectionWindow());
-		
+	public void sendInitialValuesRequest() {
+		PublicTransportCenter pTC = PublicTransportCenter
+				.getPublicTransportCenter();
+		connectionWindowController.getConnectionWindow().getMainJP()
+				.addTextInformationJTA("-----------------------");
+		connectionWindowController.getConnectionWindow().getMainJP()
+				.addTextInformationJTA("Try connect.");
+		connectionWindowController.getConnectionWindow().getMainJP()
+				.addTextInformationJTA("-----------------------");
+
+		initialValuesConnection = new InitialValuesConnection(
+				connectionWindowController.getConnectionWindow());
+
 		try {
-			pTC = initialValuesConnection.sendInitialValuesRequest(connectionWindowController.getConnectionWindow());
+			pTC = initialValuesConnection
+					.sendInitialValuesRequest(connectionWindowController
+							.getConnectionWindow());
 		} catch (NullPointerException e) {
 			System.err.println("Null object receive.");
 			e.printStackTrace();
 		}
-		
-		if(pTC != null)
-		{
-			this.pTC.setPublicTransportCenter(pTC);
-			connectionWindowController.getConnectionWindow().getButtonsJP().setEnableStartSystemJB(true);
-			connectionWindowController.getConnectionWindow().getMainJP().refreshState(true);
-		}else
-		{
-			connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("Error loading initial values.");
+
+		if (pTC != null) {
+			PublicTransportCenter.setPublicTransportCenter(pTC);
+			connectionWindowController.getConnectionWindow().getButtonsJP()
+					.setEnableStartSystemJB(true);
+			connectionWindowController.getConnectionWindow().getMainJP()
+					.refreshState(true);
+		} else {
+			connectionWindowController.getConnectionWindow().getMainJP()
+					.addTextInformationJTA("Error loading initial values.");
 		}
 	}
-	
+
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		return getCentralSystem();

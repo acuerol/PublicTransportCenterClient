@@ -12,63 +12,46 @@ import controller.CentralSystem;
 public class BusesWindowJButtonsML implements MouseListener {
 
 	private BusesWindowButtonsJP buttonsJP;
-	private CentralSystem centralSystem;
 	private BusesWindowController busesWindowController;
-	
+
 	public BusesWindowJButtonsML() {
-		centralSystem = CentralSystem.getCentralSystem();
-		busesWindowController = centralSystem.getBusesWindowController();
+		busesWindowController = CentralSystem.getCentralSystem().getBusesWindowController();
 		buttonsJP = busesWindowController.getBusesWindow().getButtonsJP();
 	}
-	
+
 	@Override
 	public void mouseClicked(MouseEvent event) {
+		CentralSystem centralSystem = CentralSystem.getCentralSystem();
 		JButton source = (JButton) event.getSource();
-		
-		if(source.equals(buttonsJP.getSendBusJB()))
-		{
+
+		if (source.equals(buttonsJP.getSendBusJB())) {
 			busesWindowController.sendBusSelected();
-		}
-		else
-		{
-			if(source.equals(buttonsJP.getStopBusJB()))
-			{
+		} else {
+			if (source.equals(buttonsJP.getStopBusJB())) {
 				busesWindowController.stopBusSelected();
-			}
-			else
-			{
-				if(source.equals(buttonsJP.getCloseJB()))
-				{
-					centralSystem.getBusesWindowController().getBusesWindow().dispose();
+			} else {
+				if (source.equals(buttonsJP.getCloseJB())) {
+					centralSystem.getBusesWindowController().getBusesWindow()
+							.dispose();
 					centralSystem.interruptRefreshTableThread();
 				}
 			}
 		}
-		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
-
 }

@@ -7,10 +7,10 @@ import java.util.ArrayList;
 /**
  * 
  * @author Alexis Cuero Losada
- *
+ * 
  */
-public class Station implements Serializable{
-	
+public class Station implements Serializable {
+
 	/**
 	 * The Station serialVersionUID
 	 */
@@ -19,15 +19,18 @@ public class Station implements Serializable{
 	private String name;
 	private Point2D.Double position;
 	private boolean state;
-	
+
 	/**
 	 * Creates a Station instance with all parameters.
-	 * @param name thestation name.
-	 * @param position the station point that represent the position in the graph.
-	 * @param state the station state, if it is nice or blocked. 
+	 * 
+	 * @param name
+	 *            thestation name.
+	 * @param position
+	 *            the station point that represent the position in the graph.
+	 * @param state
+	 *            the station state, if it is nice or blocked.
 	 */
-	public Station(String name, Point2D.Double position, boolean state)
-	{
+	public Station(String name, Point2D.Double position, boolean state) {
 		this.name = name;
 		this.position = position;
 		this.state = state;
@@ -35,15 +38,15 @@ public class Station implements Serializable{
 
 	/**
 	 * Add a node to the child nodes.
-	 * @param node the node to be added yo children
+	 * 
+	 * @param node
+	 *            the node to be added yo children
 	 */
-	public void addChild(Object node)
-	{
-		if(children == null)
-		{
+	public void addChild(Object node) {
+		if (children == null) {
 			children = new ArrayList<Object>();
 		}
-		
+
 		children.add(node);
 	}
 
@@ -67,40 +70,41 @@ public class Station implements Serializable{
 		return true;
 	}
 
-	//No sé si sea necesario.
+	// No sé si sea necesario.
 	/**
 	 * Returns a ArrayList with the node cildren.
-	 * @return ArrayList<Object> that contains the child nodes. 
+	 * 
+	 * @return ArrayList<Object> that contains the child nodes.
 	 */
-	public ArrayList<Object> getChildNodes()
-	{
+	public ArrayList<Object> getChildNodes() {
 		return children;
 	}
 
 	/**
 	 * Returns the station name.
+	 * 
 	 * @return the station name.
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Return the point that represent the station position in the graph.
-	 * @return the coordinates of station position. 
+	 * 
+	 * @return the coordinates of station position.
 	 */
-	public Point2D.Double getPosition()
-	{
+	public Point2D.Double getPosition() {
 		return position;
 	}
-	
+
 	/**
-	 * Returns the station state, if this is false the station is damaged else it is nice.
+	 * Returns the station state, if this is false the station is damaged else
+	 * it is nice.
+	 * 
 	 * @return the station state
 	 */
-	public boolean getState()
-	{
+	public boolean getState() {
 		return state;
 	}
 
@@ -111,30 +115,34 @@ public class Station implements Serializable{
 
 	/**
 	 * Returns true if child is content int childNodes, else return false.
-	 * @param child the node probably content in childNodes.
+	 * 
+	 * @param child
+	 *            the node probably content in childNodes.
 	 * @return true if childNodes contains child.
 	 */
-	public boolean isChild(Object child)
-	{
+	public boolean isChild(Object child) {
 		return children.contains(child);
 	}
 
 	/**
-	 * Sets the station state, if state is false the station is damaged else it is nice.
-	 * @param state the station state.
+	 * Sets the station state, if state is false the station is damaged else it
+	 * is nice.
+	 * 
+	 * @param state
+	 *            the station state.
 	 */
-	public void setState(boolean state)
-	{
+	public void setState(boolean state) {
 		this.state = state;
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return name;
-//		return "Station [name = " + name + "]";//, children = " + children + "]";
-		
-//		return "Station [name = " + name + ", position = " + position.getX() + "," + position.getY() + ", state = "
-//				+ state + ", children = " + children + "]";
+		// return "Station [name = " + name + "]";//, children =
+		// " + children + "]";
+
+		// return "Station [name = " + name + ", position = " + position.getX()
+		// + "," + position.getY() + ", state = "
+		// + state + ", children = " + children + "]";
 	}
 }

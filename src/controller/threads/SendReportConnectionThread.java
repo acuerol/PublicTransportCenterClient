@@ -10,27 +10,18 @@ public class SendReportConnectionThread extends Thread {
 
 	private SendReportConnection reportConnection;
 	private boolean isReporting;
-	
+
 	public SendReportConnectionThread() {
-		
 	}
-	
-	private void createReportConnection()
-	{
+
+	private void createReportConnection() {
 		reportConnection = new SendReportConnection();
 	}
 	
-	public SendReportConnection getReportConnection()
-	{
-		return reportConnection;
-	}
-
 	@Override
 	public void run() {
-		while(true)
-		{
-			if(isReporting)
-			{
+		while (true) {
+			if (isReporting) {
 				createReportConnection();
 				reportConnection.sendSystemReport();
 				try {
@@ -43,13 +34,15 @@ public class SendReportConnectionThread extends Thread {
 		}
 	}
 	
-	public void startToReport()
-	{
+	public SendReportConnection getReportConnection() {
+		return reportConnection;
+	}
+
+	public void startToReport() {
 		isReporting = true;
 	}
-	
-	public void stopOfReport()
-	{
+
+	public void stopOfReport() {
 		isReporting = false;
 	}
 }

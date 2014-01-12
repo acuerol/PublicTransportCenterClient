@@ -13,27 +13,20 @@ public class ButtonsJP extends JPanel {
 
 	private JButton exitJB;
 	private JButton showBusesJB;
-	
-	
-	
-	public ButtonsJP()
-	{
+
+	public ButtonsJP() {
 		setLayout(new FlowLayout());
 		setElements();
 	}
-	
+
 	private void setElements() {
 		exitJB = new JButton(EXIT);
 		showBusesJB = new JButton(SHOW_BUSES);
-		
-		
-		
+
 		add(showBusesJB);
-		
-		
-		
+
 		add(exitJB);
-		
+
 	}
 
 	public JButton getExitJB() {
@@ -48,6 +41,5 @@ public class ButtonsJP extends JPanel {
 		showBusesJB.addMouseListener(mouseListener);
 		exitJB.addMouseListener(mouseListener);
 	}
-	
-	
+
 }

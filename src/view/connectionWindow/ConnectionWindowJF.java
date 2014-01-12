@@ -18,21 +18,20 @@ import model.PublicTransportCenter;
 /**
  * 
  * @author Alexis Cuero Losada
- *
+ * 
  */
 public class ConnectionWindowJF extends JFrame {
 
 	private static final long serialVersionUID = 3569827843202487590L;
-	
+
 	private CentralSystem centralSystem;
 	private ConnectionWindowMainJP mainJP;
 	private ConnectionWindowButtonsJP buttonsJP;
-	
+
 	/**
 	 * Create a MainWindowJF instance.
 	 */
-	public ConnectionWindowJF()
-	{
+	public ConnectionWindowJF() {
 		setTitle("Public Trasport Center Client");
 		setSize(350, 250);
 		setLayout(new BorderLayout());
@@ -42,25 +41,23 @@ public class ConnectionWindowJF extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
-	
+
 	/**
 	 * Instance all components in the MainWindowJF.
 	 */
-	private void setAppearance()
-	{	
+	private void setAppearance() {
 		mainJP = new ConnectionWindowMainJP();
 		buttonsJP = new ConnectionWindowButtonsJP();
-		
+
 		add(mainJP, BorderLayout.CENTER);
 		add(buttonsJP, BorderLayout.SOUTH);
 	}
-	
-	public void setJButtonsActionListeners()
-	{
+
+	public void setJButtonsActionListeners() {
 		ConnectionWindowJButtonsML mouseListener = new ConnectionWindowJButtonsML();
 		buttonsJP.setJButtonsMouseListener(mouseListener);
 	}
-	
+
 	public ConnectionWindowMainJP getMainJP() {
 		return mainJP;
 	}

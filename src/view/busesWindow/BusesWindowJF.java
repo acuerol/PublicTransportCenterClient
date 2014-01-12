@@ -10,16 +10,15 @@ import model.PublicTransportCenter;
 
 /**
  * @author Alexis Cuero Losada
- *
+ * 
  */
 public class BusesWindowJF extends JFrame {
 
 	public static final String EXIT = "Exit";
 	private BusesWindowTableJP tableJP;
 	private BusesWindowButtonsJP buttonsJP;
-	
-	public BusesWindowJF()
-	{
+
+	public BusesWindowJF() {
 		setTitle("Buses Information Client");
 		setSize(600, 400);
 		setApareance();
@@ -27,24 +26,21 @@ public class BusesWindowJF extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 	}
-	
-	private void setApareance()
-	{
+
+	private void setApareance() {
 		setLayout(new BorderLayout());
 		tableJP = new BusesWindowTableJP();
 		buttonsJP = new BusesWindowButtonsJP();
-		
+
 		add(tableJP, BorderLayout.CENTER);
 		add(buttonsJP, BorderLayout.SOUTH);
 	}
-	
-	public BusesWindowTableJP getTableJP()
-	{
+
+	public BusesWindowTableJP getTableJP() {
 		return tableJP;
 	}
-	
-	public BusesWindowButtonsJP getButtonsJP()
-	{
+
+	public BusesWindowButtonsJP getButtonsJP() {
 		return buttonsJP;
-	}	
+	}
 }

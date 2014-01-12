@@ -6,9 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JSplitPane;
 
 public class DriverCreationJSP extends JSplitPane {
-	
+
 	public static final int SPLIT_POSITION = 350;
-	
+
 	private DriverCreationJP driverCreationJP;
 	private JLabel imageJL;
 
@@ -21,14 +21,13 @@ public class DriverCreationJSP extends JSplitPane {
 	private void setElements() {
 		imageJL = new JLabel("Image...");
 		driverCreationJP = new DriverCreationJP();
-		
+
 		setRightComponent(driverCreationJP);
 		setLeftComponent(imageJL);
 	}
 
-	public DriverCreationJP getDriverCreationJP()
-	{
+	public DriverCreationJP getDriverCreationJP() {
 		return driverCreationJP;
 	}
-	
+
 }

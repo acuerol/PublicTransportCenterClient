@@ -7,17 +7,17 @@ import view.connectionWindow.ConnectionWindowJF;
 /**
  * 
  * @author Alexis Cuero Losada
- *
+ * 
  */
 public class ConnectionWindowController {
 
 	private ConnectionWindowJF connectionWindow;
-	
+
 	/**
-	 * Creates a ConnectionWindowController instance for manage the mainWindowbuttons listener. 
+	 * Creates a ConnectionWindowController instance for manage the
+	 * mainWindowbuttons listener.
 	 */
-	public ConnectionWindowController()
-	{
+	public ConnectionWindowController() {
 		connectionWindow = new ConnectionWindowJF();
 	}
 

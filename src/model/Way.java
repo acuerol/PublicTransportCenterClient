@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * 
  * @author Alexis Cuero Losada
- *
+ * 
  */
 public class Way implements Serializable {
 	/**
@@ -18,14 +18,17 @@ public class Way implements Serializable {
 	// ver si no es mejro con un TreeMap.
 	/**
 	 * Creates a Way instance with all parameters.
-	 * @param distances the distances of every node.
-	 * @param nodes the way nodes 
+	 * 
+	 * @param distances
+	 *            the distances of every node.
+	 * @param nodes
+	 *            the way nodes
 	 */
 	public Way(ArrayList<Double> distances, ArrayList<Object> nodes) {
 		this.distances = distances;
 		this.nodes = nodes;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -40,26 +43,28 @@ public class Way implements Serializable {
 				return false;
 		} else if (!nodes.equals(other.nodes))
 			return false;
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Returns the distance of every node.
+	 * 
 	 * @return the distance of every node
 	 */
 	public ArrayList<Double> getDistances() {
 		return distances;
 	}
-	
+
 	/**
 	 * Returns all nodes of the way.
+	 * 
 	 * @return the way nodes.
 	 */
-	public Object getNodes() {
+	public ArrayList<Object> getNodes() {
 		return nodes;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return distances.hashCode();
@@ -67,7 +72,9 @@ public class Way implements Serializable {
 
 	/**
 	 * Sets the nodes distance.
-	 * @param distances the nodes distance
+	 * 
+	 * @param distances
+	 *            the nodes distance
 	 */
 	public void setDistance(ArrayList<Double> distances) {
 		this.distances = distances;
@@ -75,7 +82,8 @@ public class Way implements Serializable {
 
 	/**
 	 * Sets all way nodes .
-	 * @param nodes way nodes.
+	 * 
+	 * @param nodesway nodes.
 	 */
 	public void setNode(ArrayList<Object> nodes) {
 		this.nodes = nodes;
@@ -83,9 +91,7 @@ public class Way implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Way [ distances = " + distances + ", nodes = "
-				+ nodes + "]";
+		return "Way [ distances = " + distances + ", nodes = " + nodes + "]";
 	}
-	
-	
+
 }

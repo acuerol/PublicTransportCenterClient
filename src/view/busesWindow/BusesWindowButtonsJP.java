@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class BusesWindowButtonsJP extends JPanel {
-	
+
 	/**
 	 * 
 	 */
@@ -15,7 +15,7 @@ public class BusesWindowButtonsJP extends JPanel {
 	private JButton sendBusJB;
 	private JButton stopBusJB;
 	private JButton closeJB;
-	
+
 	public BusesWindowButtonsJP() {
 		setLayout(new FlowLayout());
 		setElements();
@@ -25,12 +25,12 @@ public class BusesWindowButtonsJP extends JPanel {
 		sendBusJB = new JButton("Send bus");
 		stopBusJB = new JButton("Stop bus");
 		closeJB = new JButton("Close");
-		
+
 		add(sendBusJB);
 		add(stopBusJB);
 		add(closeJB);
 	}
-	
+
 	public JButton getSendBusJB() {
 		return sendBusJB;
 	}
@@ -43,8 +43,7 @@ public class BusesWindowButtonsJP extends JPanel {
 		return closeJB;
 	}
 
-	public void setButtonsMouseListener(MouseListener mouseListener)
-	{
+	public void setButtonsMouseListener(MouseListener mouseListener) {
 		sendBusJB.addMouseListener(mouseListener);
 		stopBusJB.addMouseListener(mouseListener);
 		closeJB.addMouseListener(mouseListener);

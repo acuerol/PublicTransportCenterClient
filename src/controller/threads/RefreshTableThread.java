@@ -3,55 +3,48 @@ package controller.threads;
 import controller.CentralSystem;
 import model.PublicTransportCenter;
 
-public class RefreshTableThread extends Thread{
+public class RefreshTableThread extends Thread {
 
-	private CentralSystem centralSystem;
-	private PublicTransportCenter pTC;
 	private boolean interrupt;
-	
-	public RefreshTableThread() {
-		centralSystem = CentralSystem.getCentralSystem();
-		pTC = PublicTransportCenter.getPublicTransportCenter(); 
-		System.out.println("RefreshTableThread running...");
+
+	public RefreshTableThread() {		
 	}
-	
+
 	@Override
 	public void run() {
+		System.out.println("RefreshTableThread running...");
 		refreshTable();
 	}
-	
-	private void refreshTable()
-	{
+
+	private void refreshTable() {
+		CentralSystem centralSystem = CentralSystem.getCentralSystem();
 		int seletedRow = 0;
 		interrupt = false;
-		while (true)
-		{
-			seletedRow = centralSystem.getBusesWindowController().getBusesWindow().getTableJP().getBusesJT().getSelectedRow();
+		
+		while (true) {
+			seletedRow = centralSystem.getBusesWindowController()
+					.getBusesWindow().getTableJP().getBusesJT()
+					.getSelectedRow();
 			centralSystem.getBusesWindowController().refreshTable(seletedRow);
+			
 			try {
-				
-				if(!isInterrupted())
-				{
+				if (!isInterrupted()) {
 					sleep(1000);
-					if(interrupt)
-					{
+					if (interrupt) {
 						interrupt();
 					}
-				}
-				else
-				{
+				} else {
 					break;
 				}
-				
+
 			} catch (InterruptedException e) {
 				System.err.println("Interrupted Exception");
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	public void setInterrupt()
-	{
+
+	public void setInterrupt() {
 		interrupt = true;
 	}
 }

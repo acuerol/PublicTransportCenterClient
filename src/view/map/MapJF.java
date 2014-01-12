@@ -5,11 +5,11 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 public class MapJF extends JFrame {
-	
+
 	private ButtonsJP buttonsJP;
 	private MapJP mapJP;
 	private BarJP barJP;
-	
+
 	public MapJF() {
 		setTitle("System Map");
 		setSize(400, 400);
@@ -19,13 +19,12 @@ public class MapJF extends JFrame {
 		setVisible(true);
 	}
 
-	private void setApareance()
-	{
+	private void setApareance() {
 		setLayout(new BorderLayout());
 		buttonsJP = new ButtonsJP();
 		mapJP = new MapJP();
 		barJP = new BarJP();
-		
+
 		add(barJP, BorderLayout.NORTH);
 		add(mapJP, BorderLayout.CENTER);
 		add(buttonsJP, BorderLayout.SOUTH);
@@ -51,6 +50,5 @@ public class MapJF extends JFrame {
 	public BarJP getBarJP() {
 		return barJP;
 	}
-	
-	
+
 }
