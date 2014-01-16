@@ -37,7 +37,7 @@ public class ConnectionWindowJButtonsML implements MouseListener {
 		} else {
 			if (source.equals(buttonsJP.getExitJB())) {
 				connectionWindowController.getConnectionWindow().dispose();
-				centralSystem.createWindowCreationController();
+				System.exit(0);
 			} else {
 				if (source.equals(buttonsJP.getStartSystemJB())
 						&& buttonsJP.getStartSystemJB().isEnabled()) {

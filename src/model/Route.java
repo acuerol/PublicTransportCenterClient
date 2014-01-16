@@ -67,9 +67,10 @@ public class Route implements Serializable {
 	 * 
 	 * @return the route distance.
 	 */
-	/*
-	 * public double getDistance() { return distance; }
-	 */
+	public double getDistance() { 
+		return way.getDistances().get(way.getDistances().size() - 1);
+	}
+	 
 
 	@Override
 	public int hashCode() {

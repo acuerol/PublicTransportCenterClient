@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class ButtonsJP extends JPanel {
 
-	private JButton exitJB;
+	private JButton closeJB;
 
 	public ButtonsJP() {
 		setLayout(new FlowLayout());
@@ -16,20 +16,20 @@ public class ButtonsJP extends JPanel {
 	}
 
 	private void setElements() {
-		exitJB = new JButton("Exit");
+		closeJB = new JButton("Close");
 
-		add(exitJB);
+		add(closeJB);
 	}
 
 	public void setJButtonsMouseListener(MouseListener mouseListener) {
-		exitJB.addMouseListener(mouseListener);
+		closeJB.addMouseListener(mouseListener);
 	}
 
 	/**
 	 * @return the exitJB
 	 */
-	public JButton getExitJB() {
-		return exitJB;
+	public JButton getCloseJB() {
+		return closeJB;
 	}
 
 }

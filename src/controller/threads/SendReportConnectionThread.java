@@ -1,7 +1,11 @@
 package controller.threads;
 
+import model.Bus;
 import model.PublicTransportCenter;
+import model.Semaphore;
+import model.Station;
 import controller.CentralSystem;
+import controller.bus.SpeedPositionCalculator;
 import controller.connection.InitialValuesConnection;
 import controller.connection.SendReportConnection;
 import controller.connectionWindow.ConnectionWindowController;
@@ -19,7 +23,7 @@ public class SendReportConnectionThread extends Thread {
 	}
 	
 	@Override
-	public void run() {
+	public void run() { 
 		while (true) {
 			if (isReporting) {
 				createReportConnection();

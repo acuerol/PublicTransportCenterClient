@@ -49,8 +49,8 @@ public class InitialValuesConnection {
 		mainJP.addTextInformationJTA("Send initial values request...");
 
 		if (clientSocket == null) {
-			mainJP.addTextInformationJTA("Error creating connection with server, return the same system.");
-			return pTC;
+			mainJP.addTextInformationJTA("Error creating connection with server.");
+			return null;
 		}
 
 		try {

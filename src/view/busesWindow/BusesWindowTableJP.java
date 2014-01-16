@@ -22,7 +22,7 @@ public class BusesWindowTableJP extends JPanel {
 	private JTable busesJT;
 	private CentralSystem centralSystem;
 	private BusesWindowController busesWindowController;
-	private JScrollPane scroll;
+	private JScrollPane scrollJSP;
 	private BusesWindowJTableModel tableModel;
 	private Object[][] data;
 
@@ -47,11 +47,11 @@ public class BusesWindowTableJP extends JPanel {
 
 		tableModel = new BusesWindowJTableModel(columnsNames, data);
 		busesJT = new JTable(tableModel);
-		scroll = new JScrollPane(busesJT);
+		scrollJSP = new JScrollPane(busesJT);
 
 		busesJT.setFillsViewportHeight(true);
 
-		add(scroll, BorderLayout.CENTER);
+		add(scrollJSP, BorderLayout.CENTER);
 	}
 
 	public BusesWindowJTableModel getTableModel() {

@@ -29,9 +29,18 @@ public class BusThread extends Thread {
 					bus.setPosition(SpeedPositionCalculator.refreshPosition(bus));
 					bus.setSpeed(SpeedPositionCalculator.refreshSpeed(bus));
 
-					if (bus.getSpeed() < SpeedPositionCalculator.SPEED_DELTA && bus.getMovementState() == 3) {
-						bus.setSpeed(0);
-						bus.setMovementState(0);
+					if (bus.getSpeed() < SpeedPositionCalculator.SPEED_DELTA) {
+						if(bus.getMovementState() == 3)
+						{
+							bus.setSpeed(0);
+							bus.setMovementState(0);
+						} else {
+							if(bus.getMovementState() == 6) {
+								bus.setSpeed(0);
+								bus.setMovementState(6);
+							}
+						}
+						
 					}
 
 					if (bus.getNextNode() instanceof Station) {
@@ -50,9 +59,13 @@ public class BusThread extends Thread {
 						}
 					} else {
 						if (bus.getNextNode() instanceof Semaphore) {
+							Semaphore semaphore = ((Semaphore)(bus.getNextNode()));
+							int index = PublicTransportCenter.getPublicTransportCenter().getSemaphores().indexOf(semaphore);
+							semaphore = PublicTransportCenter.getPublicTransportCenter().getSemaphores().get(index);
+							
+//							System.out.println("ID: " + semaphore.getId() + " --> State: " + semaphore.getState());
 							if (bus.getMovementState() == 0 || bus.getMovementState() == -2) {
-								Semaphore semaphore = ((Semaphore)(bus.getNextNode()));
-
+								
 								bus.setSpeed(0);
 								bus.setMovementState(-2);
 

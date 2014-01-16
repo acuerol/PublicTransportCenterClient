@@ -1,9 +1,12 @@
 package controller.busesWindow;
 
+import java.security.AllPermission;
+
 import javax.swing.JTable;
 
 import model.Bus;
 import model.PublicTransportCenter;
+import model.Route;
 import util.Alert;
 import view.busesWindow.BusesWindowJF;
 import view.busesWindow.BusesWindowJTableModel;
@@ -25,6 +28,21 @@ public class BusesWindowController {
 	public Object[][] generateData() {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
 		int numBuses = pTC.getBuses().size();
+		String item = (String) busesWindow.getToolsJP().getRoutesJCB().getSelectedItem();
+//		String item = "T47A";
+		if(item != "All routes")
+		{
+			Route route = pTC.getRouteByName(item);
+			numBuses = pTC.getBusesByRoute(route).size();
+			Object[][] data = new Object[numBuses][8];
+			
+			for (int i = 0; i < numBuses; i++) {
+				data[i] = pTC.getBusesByRoute(route).get(i).toArray();
+			}
+			
+			return data;
+		}
+		
 		Object[][] data = new Object[numBuses][8];
 
 		for (int i = 0; i < numBuses; i++) {

@@ -17,7 +17,8 @@ public class BusesWindowJF extends JFrame {
 	public static final String EXIT = "Exit";
 	private BusesWindowTableJP tableJP;
 	private BusesWindowButtonsJP buttonsJP;
-
+	private ToolsJP toolsJP;
+	
 	public BusesWindowJF() {
 		setTitle("Buses Information Client");
 		setSize(600, 400);
@@ -29,11 +30,14 @@ public class BusesWindowJF extends JFrame {
 
 	private void setApareance() {
 		setLayout(new BorderLayout());
+		toolsJP = new ToolsJP();
 		tableJP = new BusesWindowTableJP();
 		buttonsJP = new BusesWindowButtonsJP();
-
+		
+		add(toolsJP, BorderLayout.NORTH);
 		add(tableJP, BorderLayout.CENTER);
 		add(buttonsJP, BorderLayout.SOUTH);
+		
 	}
 
 	public BusesWindowTableJP getTableJP() {
@@ -43,4 +47,13 @@ public class BusesWindowJF extends JFrame {
 	public BusesWindowButtonsJP getButtonsJP() {
 		return buttonsJP;
 	}
+
+	/**
+	 * @return the toolsJP
+	 */
+	public ToolsJP getToolsJP() {
+		return toolsJP;
+	}
+	
+	
 }

@@ -4,7 +4,7 @@ import controller.threads.BusThread;
 import model.Bus;
 
 public class SpeedPositionCalculator {
-	public static final double SPEED_DELTA = 1.5;
+	public static final double SPEED_DELTA = 1;
 	public static final double TIME = ((double) (BusThread.FREQUENCY) / 1000);
 
 	public static double refreshPosition(Bus bus) {

@@ -58,7 +58,7 @@ public class WindowCreationController {
 		Route tempRoute = pTC.getRouteByName(route);
 		double tempPosition = Double.parseDouble(position);
 
-		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, false);
+		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, true);
 		bus.setStartTime(GregorianCalendar.getInstance());
 		System.out.println(bus.getStartTime());
 		if(!pTC.getBuses().contains(bus))

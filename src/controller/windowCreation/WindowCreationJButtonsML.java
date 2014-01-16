@@ -104,8 +104,6 @@ public class WindowCreationJButtonsML implements MouseListener {
 						} else {
 							if (sourceJB.equals(buttonsJP.getShowBusesJB())) {
 								centralSystem.createBusesWindowController();
-								centralSystem.cretaeRefreshTableThread();
-								centralSystem.startRefreshTableThread();
 							} else {
 								if(sourceJB.equals(buttonsJP.getShowGraphicSystemJB())) {
 									centralSystem.createGraphicSystemController();
@@ -157,19 +155,143 @@ public class WindowCreationJButtonsML implements MouseListener {
 	}
 
 	public void generateTestBus() {
+//		test01();
+		test02();
+		test03();
+	}
+
+	private void test01() {
 		String id = "B001-Test";
 		String plate = "TES-123";
 		String route = "T47A";
-		String position = "0.73";
+		String position = "2.0";
 		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
-
+		
 		id = "B002-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "1.7";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B003-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "1.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B004-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "0.73";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B005-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "0.5";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B006-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "0.2";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B007-Test";
 		plate = "TES-456";
 		route = "T47A";
 		position = "0.0";
 		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
 	}
-
+	
+	private void test02() {
+		String id = "B001-Test";
+		String plate = "TES-123";
+		String route = "T47A";
+		String position = "3.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B002-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "2.7";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B003-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "2.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B004-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "1.5";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B005-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "1";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B006-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "0.5";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B007-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "0.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+	}
+	
+	private void test03() {
+		String id = "B001-E21";
+		String plate = "TES-123";
+		String route = "T47A";
+		String position = "3.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B002-E21";
+		plate = "TES-456";
+		route = "E21";
+		position = "2.7";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B003-E21";
+		plate = "TES-456";
+		route = "E21";
+		position = "2.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B004-E21";
+		plate = "TES-456";
+		route = "E21";
+		position = "1.5";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B005-E21";
+		plate = "TES-456";
+		route = "E21";
+		position = "1";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B006-E21";
+		plate = "TES-456";
+		route = "E21";
+		position = "0.5";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B007-E21";
+		plate = "TES-456";
+		route = "E21";
+		position = "0.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+	}
+	
 	public void generateRandomDrivers(int num) {
 		for (int i = 0; i < 10; i++) {
 			String id = RandomClass.getRandomID();

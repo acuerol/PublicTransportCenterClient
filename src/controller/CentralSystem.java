@@ -64,9 +64,15 @@ public class CentralSystem {
 		refreshSystemGraphicThread.start();
 	}
 	
+	public void interruptRefreshSystemGraphicThread()
+	{
+		refreshSystemGraphicThread.setInterrupt();
+	}
+	
 	public void createGraphicSystemController() {
 		graphicSystemController = new GraphicSystemController();
 		graphicSystemController.getGraphicSystemJF().setJComboBoxItemListener();
+		graphicSystemController.getGraphicSystemJF().setJButtonsMouseListener();
 	}
 	
 	/**
@@ -118,6 +124,7 @@ public class CentralSystem {
 	public void createBusesWindowController() {
 		busesWindowController = new BusesWindowController();
 		busesWindowController.setJButtonsMouseListener();
+		cretaeRefreshTableThread();
 	}
 
 	public BusesWindowController getBusesWindowController() {
@@ -131,9 +138,6 @@ public class CentralSystem {
 
 	public void cretaeRefreshTableThread() {
 		refreshTableThread = new RefreshTableThread();
-	}
-
-	public void startRefreshTableThread() {
 		refreshTableThread.start();
 	}
 
@@ -166,7 +170,7 @@ public class CentralSystem {
 			System.err.println("Null object receive.");
 			e.printStackTrace();
 		}
-
+		
 		if (pTC != null) {
 			PublicTransportCenter.setPublicTransportCenter(pTC);
 			connectionWindowController.getConnectionWindow().getButtonsJP()
