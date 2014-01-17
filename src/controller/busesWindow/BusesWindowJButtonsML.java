@@ -2,26 +2,23 @@ package controller.busesWindow;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.JButton;
 
-import view.busesWindow.BusesWindowButtonsJP;
-import view.busesWindow.BusesWindowTableJP;
+import view.busesWindow.ButtonsJP;
 import controller.CentralSystem;
 
+/**
+ * 
+ * @author Alexis Cuero Losada.
+ * This class implements MouseListener for handle the mouse event of the buttons in the BusesWindowJF.
+ */
 public class BusesWindowJButtonsML implements MouseListener {
-
-	private BusesWindowButtonsJP buttonsJP;
-	private BusesWindowController busesWindowController;
-
-	public BusesWindowJButtonsML() {
-		busesWindowController = CentralSystem.getCentralSystem().getBusesWindowController();
-		buttonsJP = busesWindowController.getBusesWindow().getButtonsJP();
-	}
 
 	@Override
 	public void mouseClicked(MouseEvent event) {
 		CentralSystem centralSystem = CentralSystem.getCentralSystem();
+		BusesWindowController busesWindowController = centralSystem.getBusesWindowController();
+		ButtonsJP buttonsJP = busesWindowController.getBusesWindow().getButtonsJP();
 		JButton source = (JButton) event.getSource();
 
 		if (source.equals(buttonsJP.getSendBusJB())) {

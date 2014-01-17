@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseListener;
 
@@ -16,18 +15,26 @@ import javax.swing.JTextField;
 
 /**
  * @author Alexis Cuero Losada
- * 
+ * This class extends of JPanel and is used for create the elements for the tag "Create Driver" 
+ * in {@link WindowCreationJF}.
  */
 public class DriverCreationJP extends JPanel {
 
-	public static final String CLEAN_DRIVER = "Clean Driver";
-	public static final String CREATE_DRIVER = "Create Driver";
-	public static final String ID = "id";
-
-	public static final String LAST_NAME = "Last name";
-	public static final String NAME = "Name";
 	private static final long serialVersionUID = 8140788547398954167L;
-
+	
+	/**
+	 * The string for the JTextField idJTF.
+	 */
+	public static final String ID = "id";
+	/**
+	 * The string for the JTextField lastNameJTF.
+	 */
+	public static final String LAST_NAME = "Last name";
+	/**
+	 * The string for the JTextField nameJTF.
+	 */
+	public static final String NAME = "Name";
+	
 	private JPanel buttonsJP;
 	private JPanel dataJP;
 	private JButton cleanDriverJB;
@@ -48,16 +55,13 @@ public class DriverCreationJP extends JPanel {
 	public DriverCreationJP() {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout());
-		setBorder(BorderFactory
-				.createTitledBorder("Driver Creation Parameters"));
+		setBorder(BorderFactory.createTitledBorder("Driver Creation Parameters"));
 
 		dataJP = new JPanel(new GridLayout(3, 2, 8, 8));
 		buttonsJP = new JPanel(new FlowLayout());
 
-		createDriverJB = new JButton(CREATE_DRIVER);
-		createDriverJB.setActionCommand(CREATE_DRIVER);
-		cleanDriverJB = new JButton(CLEAN_DRIVER);
-		cleanDriverJB.setActionCommand(CLEAN_DRIVER);
+		createDriverJB = new JButton("Create Driver");
+		cleanDriverJB = new JButton("Clean fields");
 
 		idJL = new JLabel("id: ");
 		nameJL = new JLabel("Name: ");
@@ -91,39 +95,23 @@ public class DriverCreationJP extends JPanel {
 	}
 
 	/**
-	 * Adds a ActionListener to the JButton createDriverJB.
-	 * 
-	 * @param mouseListener
-	 *            the ActionListener for createDriverJB.
+	 * Returns the cleanDriverJB instance creates in this JPanel.
+	 * @return the cleanDriverJB instance
 	 */
-	public void setButtonsActionListener(MouseListener mouseListener) {
-		createDriverJB.addMouseListener(mouseListener);
-		cleanDriverJB.addMouseListener(mouseListener);
-
-		randomJB.addMouseListener(mouseListener);
-		random10JB.addMouseListener(mouseListener);
-	}
-
-	public void addJTextFieldFocusListener(FocusListener focusL) {
-		idJTF.addFocusListener(focusL);
-		nameJTF.addFocusListener(focusL);
-		lastNameJTF.addFocusListener(focusL);
-	}
-
-	public JButton getRandomJB() {
-		return randomJB;
-	}
-
 	public JButton getCleanDriverJB() {
 		return cleanDriverJB;
 	}
 
+	/**
+	 * Returns the createDriverJB instance creates in this JPanel.
+	 * @return the createDriverJB instance
+	 */
 	public JButton getCreateDriverJB() {
 		return createDriverJB;
 	}
 
 	/**
-	 * Sets in all field a empty text.
+	 * Sets in all field the original format.
 	 */
 	public void clean() {
 		idJTF.setText(ID);
@@ -134,76 +122,65 @@ public class DriverCreationJP extends JPanel {
 		lastNameJTF.setForeground(Color.GRAY);
 	}
 
+	/**
+	 * Returns the idJTF instance creates in this JPanel.
+	 * @return the idJTF instance
+	 */
 	public JTextField getIdJTF() {
 		return idJTF;
 	}
 
 	/**
-	 * Returns the text in the idJTF.
-	 * 
-	 * @return the text in the idJTF.
+	 * Returns the lastNameJTF instance creates in this JPanel.
+	 * @return the lastNameJTF instance
 	 */
-	public String getIdText() {
-		return idJTF.getText();
-	}
-
 	public JTextField getLastNameJTF() {
 		return lastNameJTF;
 	}
 
 	/**
-	 * Returns the text in the lastNameJTF.
-	 * 
-	 * @return the text in the lastNameJTF.
+	 * Returns the nameJTF instance creates in this JPanel.
+	 * @return the nameJTF instance
 	 */
-	public String getLastNameText() {
-		return lastNameJTF.getText();
-	}
-
 	public JTextField getNameJTF() {
 		return nameJTF;
 	}
 
 	/**
-	 * Returns the text in the nameJTF.
-	 * 
-	 * @return the text in the nameJTF.
+	 * Returns the random10JB instance creates in this JPanel.
+	 * @return the random10JB instance
 	 */
-	public String getNameText() {
-		return nameJTF.getText();
-	}
-
-	/**
-	 * Sets a text (str) in this idJTF.
-	 * 
-	 * @param str
-	 *            the text for set in the idJTF.
-	 */
-	public void setIdText(String str) {
-		idJTF.setText(str);
-	}
-
-	/**
-	 * Sets a text (str) in this lastNameJTF.
-	 * 
-	 * @param str
-	 *            the text for set in the lastNameJTF.
-	 */
-	public void setLastNameText(String str) {
-		lastNameJTF.setText(str);
-	}
-
-	/**
-	 * Sets a text (str) in this nameJTF.
-	 * 
-	 * @param str
-	 *            the text for set in the nameJTF.
-	 */
-	public void setNameText(String str) {
-		nameJTF.setText(str);
-	}
-
 	public Object getRandom10JB() {
 		return random10JB;
+	}
+	
+	/**
+	 * Returns the randomJB instance creates in this JPanel.
+	 * @return the randomJB instance creates in this JPanel
+	 */
+	public JButton getRandomJB() {
+		return randomJB;
+	}
+	
+	/**
+	 * Adds a ActionListener to the JButton createDriverJB.
+	 * @param mouseListener the ActionListener for createDriverJB.
+	 */
+	public void setButtonsActionListener(MouseListener mouseListener) {
+		createDriverJB.addMouseListener(mouseListener);
+		cleanDriverJB.addMouseListener(mouseListener);
+
+		randomJB.addMouseListener(mouseListener);
+		random10JB.addMouseListener(mouseListener);
+	}
+
+	/**
+	 * Sets the FocusListener for handle JTextField creates in this JPanel. 
+	 * @param focusListener the class for handle the focusEvent into this JPanel.
+	 */
+	public void setJTextFieldFocusListener(FocusListener focusListener) {
+		idJTF.addFocusListener(focusListener);
+		nameJTF.addFocusListener(focusListener);
+		lastNameJTF.addFocusListener(focusListener);
 	}
 }

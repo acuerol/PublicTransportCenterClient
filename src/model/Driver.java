@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 
  * @author Alexis Cuero Losada
- * 
+ * Abstracts the real world drivers with attributes the name, lastName and id 
  */
 public class Driver implements Serializable {
 

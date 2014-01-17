@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * 
  * @author Alexis Cuero Losada
- * 
+ * Abstracts the real world roads.
  */
 public class Road implements Serializable {
 

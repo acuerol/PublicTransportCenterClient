@@ -1,27 +1,29 @@
 package controller.connectionWindow;
 
-import controller.CentralSystem;
-import model.PublicTransportCenter;
 import view.connectionWindow.ConnectionWindowJF;
 
 /**
  * 
  * @author Alexis Cuero Losada
- * 
+ * Controller for the connection window.
  */
 public class ConnectionWindowController {
 
-	private ConnectionWindowJF connectionWindow;
+	private ConnectionWindowJF connectionWindowJF;
 
 	/**
 	 * Creates a ConnectionWindowController instance for manage the
 	 * mainWindowbuttons listener.
 	 */
 	public ConnectionWindowController() {
-		connectionWindow = new ConnectionWindowJF();
+		connectionWindowJF = new ConnectionWindowJF();
 	}
 
+	/**
+	 * Returns the connectionWidnowJF instance.
+	 * @return the connectionWindowJF instance.
+	 */
 	public ConnectionWindowJF getConnectionWindow() {
-		return connectionWindow;
+		return connectionWindowJF;
 	}
 }

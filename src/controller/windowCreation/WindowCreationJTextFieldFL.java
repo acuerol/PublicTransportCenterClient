@@ -11,15 +11,18 @@ import view.windowCreation.BusCreationJP;
 import view.windowCreation.DriverCreationJP;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * With this class the appearance of program is improved. The JTextField have a text with the name of parameter to write
+ * if the text is erase and isn't fill the label is shown again.
  */
 public class WindowCreationJTextFieldFL implements FocusListener {
 
 	private BusCreationJP busCreationJP;
 	private DriverCreationJP driverCreationJP;
 
+	/**
+	 * Constructo that get the panels for refresh the JTextField.
+	 */
 	public WindowCreationJTextFieldFL() {
 		WindowCreationController windowCreationController = CentralSystem.getCentralSystem().getWindowCreationController();
 		busCreationJP = windowCreationController.getWindowCreation().getBusCreationJSP().getBusCreationJP();
@@ -76,17 +79,17 @@ public class WindowCreationJTextFieldFL implements FocusListener {
 		JTextField source = (JTextField) event.getSource();
 
 		if (source.equals(busCreationJP.getIdJTF())
-				&& busCreationJP.getIdText().equals("")) {
+				&& busCreationJP.getIdJTF().getText().equals("")) {
 			source.setForeground(Color.GRAY);
 			source.setText(BusCreationJP.ID);
 		} else {
 			if (source.equals(busCreationJP.getPlateJTF())
-					&& busCreationJP.getPlateText().equals("")) {
+					&& busCreationJP.getPlateJTF().getText().equals("")) {
 				source.setForeground(Color.GRAY);
 				source.setText(BusCreationJP.PLATE);
 			} else {
 				if (source.equals(busCreationJP.getPositionJTF())
-						&& busCreationJP.getPositionText().equals("")) {
+						&& busCreationJP.getPositionJTF().getText().equals("")) {
 					source.setForeground(Color.GRAY);
 					source.setText(BusCreationJP.POSITION);
 				}
@@ -94,17 +97,17 @@ public class WindowCreationJTextFieldFL implements FocusListener {
 		}
 
 		if (source.equals(driverCreationJP.getIdJTF())
-				&& driverCreationJP.getIdText().equals("")) {
+				&& driverCreationJP.getIdJTF().getText().equals("")) {
 			source.setForeground(Color.GRAY);
 			source.setText(DriverCreationJP.ID);
 		} else {
 			if (source.equals(driverCreationJP.getNameJTF())
-					&& driverCreationJP.getNameText().equals("")) {
+					&& driverCreationJP.getNameJTF().getText().equals("")) {
 				source.setForeground(Color.GRAY);
 				source.setText(DriverCreationJP.NAME);
 			} else {
 				if (source.equals(driverCreationJP.getLastNameJTF())
-						&& driverCreationJP.getLastNameText().equals("")) {
+						&& driverCreationJP.getLastNameJTF().getText().equals("")) {
 					source.setForeground(Color.GRAY);
 					source.setText(DriverCreationJP.LAST_NAME);
 				}

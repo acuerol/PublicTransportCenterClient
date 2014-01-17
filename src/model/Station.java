@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * 
  * @author Alexis Cuero Losada
- * 
+ * Abstracts the real world stations.
  */
 public class Station implements Serializable {
 

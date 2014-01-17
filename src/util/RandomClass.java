@@ -21,8 +21,7 @@ public class RandomClass {
 	 * 
 	 * @param min
 	 *            the minimum value for the random double.
-	 * @param double1
-	 *            the maximum value for the random double.
+	 * @param max the maximal value for the random double.
 	 * @return a random double in the interval [min,max].
 	 */
 	public static double getRandomDouble(double min, double max) {
@@ -76,18 +75,35 @@ public class RandomClass {
 		return str;
 	}
 
+	/**
+	 * Returns a random line from a List.
+	 * @param lines The lines for select one.
+	 * @return a random line from a List.
+	 */
 	public static String getRandomLine(ArrayList<String> lines) {
 		return lines.get(getRandomInt(0, lines.size() - 1));
 	}
 
+	/**
+	 * Returns a random name from a file.
+	 * @return a random name.
+	 */
 	public static String getRandomName() {
 		return getRandomLine(IOFiles.readFile("textFiles/nombresHombre.txt"));
 	}
 
+	/**
+	 * Returns a random lastName from a file.
+	 * @return a random lastName.
+	 */
 	public static String getRandomLastName() {
 		return getRandomLine(IOFiles.readFile("textFiles/apellidos.txt"));
 	}
 
+	/**
+	 * Returns a random id.
+	 * @return a random id
+	 */
 	public static String getRandomID() {
 		String id = "";
 
@@ -98,6 +114,11 @@ public class RandomClass {
 		return id;
 	}
 
+	/**
+	 * Returns a random distance from a way of route.
+	 * @param route the route for get the distance from the way of this.
+	 * @return a random distance.
+	 */
 	public static double getRandomDistance(Route route) {
 		double max;
 		double distance;

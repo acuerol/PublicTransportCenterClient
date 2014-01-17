@@ -82,6 +82,12 @@ public class UtilCalc {
 				+ Math.cos(latA) * Math.cos(latB) * Math.cos(dLon))));
 	}
 
+	/**
+	 * Returns a double with the number of digits.
+	 * @param number the number to round.
+	 * @param digits the number of decimal.
+	 * @return the number round.
+	 */
 	public static double round(double number, int digits) {
 		int digitsNum = (int) Math.pow(10, digits);
 		number = Math.rint(number * digitsNum) / digitsNum;
@@ -89,10 +95,16 @@ public class UtilCalc {
 		return number;
 	}
 
+	/**
+	 * Returns true if the numbers are equal.
+	 * @param a the first double for compare.
+	 * @param b the second double for compare.
+	 * @return if the numbers are equal.
+	 */
 	public static boolean compareDouble(double a, double b) {
-		final double EPSILON = 1E-2;
+		final double EPS = 1E-2;
 
-		if (Math.abs(a - b) < EPSILON) {
+		if (Math.abs(a - b) < EPS) {
 			return true;
 		}
 

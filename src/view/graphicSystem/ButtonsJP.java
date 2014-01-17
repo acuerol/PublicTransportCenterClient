@@ -6,10 +6,18 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * @author Alexis Cuero Losada
+ * This class extends of JPanel and is used for contain the JButtons of the {@link GraphicSystemJF}. 
+ */
 public class ButtonsJP extends JPanel {
 
+	private static final long serialVersionUID = 5201085521131230172L;
 	private JButton closeJB;
 
+	/**
+	 * Constructor that instance the JButtons into this JPanel.
+	 */
 	public ButtonsJP() {
 		setLayout(new FlowLayout());
 		setElements();
@@ -21,10 +29,6 @@ public class ButtonsJP extends JPanel {
 		add(closeJB);
 	}
 
-	public void setJButtonsMouseListener(MouseListener mouseListener) {
-		closeJB.addMouseListener(mouseListener);
-	}
-
 	/**
 	 * @return the exitJB
 	 */
@@ -32,4 +36,11 @@ public class ButtonsJP extends JPanel {
 		return closeJB;
 	}
 
+	/**
+	 * Sets the class for handle the mouse events into the panel. 
+	 * @param mouseListener the class for handle the mouse events into the panel
+	 */
+	public void setJButtonsMouseListener(MouseListener mouseListener) {
+		closeJB.addMouseListener(mouseListener);
+	}
 }

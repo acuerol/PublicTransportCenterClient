@@ -17,9 +17,9 @@ import controller.windowCreation.WindowCreationController;
 import model.PublicTransportCenter;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * CentralSystem is the abstract class, this is the central controller, contains all sub controllers.
+ * Implements Singleton for ensure have the same instances along of all program.
  */
 public class CentralSystem {
 
@@ -36,7 +36,7 @@ public class CentralSystem {
 	private static CentralSystem centralSystem;
 
 	/**
-	 * CentralSystem constructor with the JFrame apareance.
+	 * CentralSystem constructor with the JFrame appearance.
 	 */
 	private CentralSystem() {
 		JFrame.setDefaultLookAndFeelDecorated(true);
@@ -44,11 +44,9 @@ public class CentralSystem {
 	}
 
 	/**
-	 * Creates the PublicTransportCenter instance if this hasn't been create
-	 * else return the instance.
-	 * 
-	 * @return the PublicTransportCenter instance if this has been already
-	 *         create else create this.
+	 * Returns the centralSystem if this was created, else create a new instance of this.
+	 * Ensure that always the get instance will be the same.
+	 * @return the CentralSystem instance
 	 */
 	public static synchronized CentralSystem getCentralSystem() {
 		if (centralSystem == null) {
@@ -58,17 +56,27 @@ public class CentralSystem {
 		return centralSystem;
 	}
 
+	/**
+	 * Creates the thread that handles the map with the label, these represent every element in the system.
+	 */
 	public void createRefreshSystemGraphicThread()
 	{
 		refreshSystemGraphicThread = new RefreshSystemGraphicThread();
 		refreshSystemGraphicThread.start();
 	}
 	
+	/**
+	 * Interrupts the thread that handles the graphic system representation.
+	 */
 	public void interruptRefreshSystemGraphicThread()
 	{
 		refreshSystemGraphicThread.setInterrupt();
 	}
 	
+	/**
+	 * Creates the controller for the graphic system and set the listener for the change in the
+	 * JComboBox an the mouse listener for the JButtons.
+	 */
 	public void createGraphicSystemController() {
 		graphicSystemController = new GraphicSystemController();
 		graphicSystemController.getGraphicSystemJF().setJComboBoxItemListener();
@@ -112,60 +120,76 @@ public class CentralSystem {
 		return connectionWindowController;
 	}
 
+	/**
+	 * Creates the controller and set the mouse listener for the WindowCreation (manage Buse and Driver).
+	 */
 	public void createWindowCreationController() {
 		windowCreationController = new WindowCreationController();
 		windowCreationController.setJButtonsMouseListener();
 	}
 
+	/**
+	 * Returns the instance of WindowCreatioController for manage buses and drivers.
+	 * @return the instance of WindowCreatioController 
+	 */
 	public WindowCreationController getWindowCreationController() {
 		return windowCreationController;
 	}
 
+	/**
+	 * Creates the controller for the window that allows wath the information of the buses in the system in an JTable. 
+	 */
 	public void createBusesWindowController() {
 		busesWindowController = new BusesWindowController();
 		busesWindowController.setJButtonsMouseListener();
 		cretaeRefreshTableThread();
 	}
 
+	/**
+	 * Returns the controller of BusesWindow for visualize the buses in the system in a JTable. 
+	 * @return the controller of BusesWindow
+	 */
 	public BusesWindowController getBusesWindowController() {
 		return busesWindowController;
 	}
 
-	public void runBusThread() {
+	/**
+	 * Creates and starts the thread for handle the buses speed and position.
+	 */
+	public void createBusThread() {
 		busThread = new BusThread();
 		busThread.start();
 	}
 
+	/**
+	 * Creates the thread that handle the updating of the busesWindow JTable for show the information about
+	 * the buses in the system. 
+	 */
 	public void cretaeRefreshTableThread() {
 		refreshTableThread = new RefreshTableThread();
 		refreshTableThread.start();
 	}
 
+	/**
+	 * Interrupts the refreshTableThread.
+	 */
 	public void interruptRefreshTableThread() {
 		refreshTableThread.setInterrupt();
 	}
 
-	public RefreshTableThread getRefreshTableThread() {
-		return refreshTableThread;
-	}
-
+	/**
+	 * Sends a initialValueRequets to the server and set the system obtained. 
+	 */
 	public void sendInitialValuesRequest() {
-		PublicTransportCenter pTC = PublicTransportCenter
-				.getPublicTransportCenter();
-		connectionWindowController.getConnectionWindow().getMainJP()
-				.addTextInformationJTA("-----------------------");
-		connectionWindowController.getConnectionWindow().getMainJP()
-				.addTextInformationJTA("Try connect.");
-		connectionWindowController.getConnectionWindow().getMainJP()
-				.addTextInformationJTA("-----------------------");
+		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
+		connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("-----------------------");
+		connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("Try connect.");
+		connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("-----------------------");
 
-		initialValuesConnection = new InitialValuesConnection(
-				connectionWindowController.getConnectionWindow());
+		initialValuesConnection = new InitialValuesConnection(	connectionWindowController.getConnectionWindow());
 
 		try {
-			pTC = initialValuesConnection
-					.sendInitialValuesRequest(connectionWindowController
-							.getConnectionWindow());
+			pTC = initialValuesConnection.sendInitialValuesRequest(connectionWindowController.getConnectionWindow());
 		} catch (NullPointerException e) {
 			System.err.println("Null object receive.");
 			e.printStackTrace();
@@ -173,13 +197,10 @@ public class CentralSystem {
 		
 		if (pTC != null) {
 			PublicTransportCenter.setPublicTransportCenter(pTC);
-			connectionWindowController.getConnectionWindow().getButtonsJP()
-					.setEnableStartSystemJB(true);
-			connectionWindowController.getConnectionWindow().getMainJP()
-					.refreshState(true);
+			connectionWindowController.getConnectionWindow().getButtonsJP().setEnableStartSystemJB(true);
+			connectionWindowController.getConnectionWindow().getMainJP().refreshState(true);
 		} else {
-			connectionWindowController.getConnectionWindow().getMainJP()
-					.addTextInformationJTA("Error loading initial values.");
+			connectionWindowController.getConnectionWindow().getMainJP().addTextInformationJTA("Error loading initial values.");
 		}
 	}
 

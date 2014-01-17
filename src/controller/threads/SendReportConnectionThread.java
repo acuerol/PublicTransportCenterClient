@@ -1,25 +1,18 @@
 package controller.threads;
 
-import model.Bus;
-import model.PublicTransportCenter;
-import model.Semaphore;
-import model.Station;
-import controller.CentralSystem;
-import controller.bus.SpeedPositionCalculator;
-import controller.connection.InitialValuesConnection;
 import controller.connection.SendReportConnection;
-import controller.connectionWindow.ConnectionWindowController;
 
+/**
+ * @author Alexis Cuero Losada
+ * This is the thread for handle the class that send the report. This send the report every 500 milliseconds.
+ */
 public class SendReportConnectionThread extends Thread {
 
-	private SendReportConnection reportConnection;
+	private SendReportConnection sendReportConnection;
 	private boolean isReporting;
 
-	public SendReportConnectionThread() {
-	}
-
 	private void createReportConnection() {
-		reportConnection = new SendReportConnection();
+		sendReportConnection = new SendReportConnection();
 	}
 	
 	@Override
@@ -27,7 +20,7 @@ public class SendReportConnectionThread extends Thread {
 		while (true) {
 			if (isReporting) {
 				createReportConnection();
-				reportConnection.sendSystemReport();
+				sendReportConnection.sendSystemReport();
 				try {
 					sleep(500);
 				} catch (InterruptedException e) {
@@ -37,15 +30,17 @@ public class SendReportConnectionThread extends Thread {
 			}
 		}
 	}
-	
-	public SendReportConnection getReportConnection() {
-		return reportConnection;
-	}
 
+	/**
+	 * Starts to reporting the system.
+	 */
 	public void startToReport() {
 		isReporting = true;
 	}
 
+	/**
+	 * Stops of reporting the system.
+	 */
 	public void stopOfReport() {
 		isReporting = false;
 	}

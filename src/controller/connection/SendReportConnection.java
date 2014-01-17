@@ -6,36 +6,47 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import javax.swing.JFrame;
-
-import model.Bus;
 import model.PublicTransportCenter;
-import util.Alert;
 
+/**
+ * 
+ * @author Alexis Cuero Losada
+ * Class for send a report to the server of the main program.
+ */
 public class SendReportConnection {
 
+	/**
+	 * The IP of server for send request.
+	 */
 	public static final String IP = "localhost";
+	/**
+	 * The port for communicate with the server. 
+	 */
 	public static final int PORT = 5001;
 
 	private Socket clientSocket;
 
+	/**
+	 * Class constructor, create the client socket.
+	 */
 	public SendReportConnection() {
 		createClientSocket();
 	}
 
+	/**
+	 * Sends the report from the client to the server with the system update.
+	 * @return true if all is correct or false if an error has occurred.
+	 */
 	public boolean sendSystemReport() {
 		if (clientSocket != null) {
 			String confirmation = "";
-			PublicTransportCenter pTC;
+			PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
 
 			try {
-				ObjectInputStream serverDataSended = new ObjectInputStream(
-						clientSocket.getInputStream());
-				ObjectOutputStream sendData = new ObjectOutputStream(
-						clientSocket.getOutputStream());
+				ObjectInputStream serverDataSended = new ObjectInputStream(clientSocket.getInputStream());
+				ObjectOutputStream sendData = new ObjectOutputStream(clientSocket.getOutputStream());
 
-				sendData.writeObject(PublicTransportCenter
-						.getPublicTransportCenter());
+				sendData.writeObject(PublicTransportCenter.getPublicTransportCenter());
 
 				confirmation = (String) serverDataSended.readObject();
 

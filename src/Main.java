@@ -8,7 +8,7 @@ import controller.CentralSystem;
 public class Main {
 
 	/**
-	 * Main class, first excuted class.
+	 * Main class, first executed class.
 	 * 
 	 * @param args
 	 *            program parameters.

@@ -1,14 +1,14 @@
 package controller.threads;
 
 import controller.CentralSystem;
-import model.PublicTransportCenter;
 
+/**
+ * @author Alexis Cuero Losada
+ * Class for refresh the table thread with the last buses state.
+ */
 public class RefreshTableThread extends Thread {
 
 	private boolean interrupt;
-
-	public RefreshTableThread() {		
-	}
 
 	@Override
 	public void run() {
@@ -44,6 +44,9 @@ public class RefreshTableThread extends Thread {
 		}
 	}
 
+	/**
+	 * Sets interrup the thread.
+	 */
 	public void setInterrupt() {
 		interrupt = true;
 	}

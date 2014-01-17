@@ -6,32 +6,31 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.plaf.SliderUI;
-
-import controller.CentralSystem;
-import controller.busesWindow.BusesWindowController;
-import controller.threads.BusThread;
-import model.PublicTransportCenter;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * Class that exteds of JPanel for contain the Jtable of JFrame.
  */
-public class BusesWindowTableJP extends JPanel {
+public class TableJP extends JPanel {
+
+	private static final long serialVersionUID = -6177183054257994205L;
+	
 	private JTable busesJT;
-	private CentralSystem centralSystem;
-	private BusesWindowController busesWindowController;
 	private JScrollPane scrollJSP;
 	private BusesWindowJTableModel tableModel;
 	private Object[][] data;
 
-	public BusesWindowTableJP() {
-		centralSystem = CentralSystem.getCentralSystem();
-
+	/**
+	 * Contructor that initialize the element into the JPanel.
+	 */
+	public TableJP() {
 		setElements();
 	}
 
+	/**
+	 * Returns the JTable of the panel.
+	 * @return the JTable of the panel
+	 */
 	public JTable getBusesJT() {
 		return busesJT;
 	}
@@ -54,10 +53,18 @@ public class BusesWindowTableJP extends JPanel {
 		add(scrollJSP, BorderLayout.CENTER);
 	}
 
+	/**
+	 * Returns the JTableModel of the JTable in the panel.
+	 * @return the JTableModel of the JTable in the panel
+	 */
 	public BusesWindowJTableModel getTableModel() {
 		return tableModel;
 	}
 
+	/**
+	 * Returns the ID of the bus selected in the JTable.
+	 * @return the ID of the bus selected in the JTable
+	 */
 	public String getSelectedBusID() {
 		int selectedRow = busesJT.getSelectedRow();
 

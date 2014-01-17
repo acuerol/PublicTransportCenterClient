@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 import model.PublicTransportCenter;
 import view.connectionWindow.ConnectionWindowJF;
-import view.connectionWindow.ConnectionWindowMainJP;
+import view.connectionWindow.MainJP;
 import util.Alert;
 
 /**
@@ -20,12 +20,22 @@ import util.Alert;
  */
 public class InitialValuesConnection {
 
+	/**
+	 * The IP of server for send request.
+	 */
 	public static final String IP = "localhost";
+	/**
+	 * The port for communicate with the server. 
+	 */
 	public static final int PORT = 5000;
 
 	private Socket clientSocket;
 	private JFrame parent;
 
+	/**
+	 * Initializes the client connection for send the initial values request.
+	 * @param parent the JFrame that call this method for generate the alerts.
+	 */
 	public InitialValuesConnection(JFrame parent) {
 		this.parent = parent;
 
@@ -41,9 +51,15 @@ public class InitialValuesConnection {
 		}
 	}
 
+	/**
+	 * Sends a initial value request to server for start the system. Returns a PublicTransportCenter instance
+	 * for set in the actual system. 
+	 * @param connectionWindow the connectionWindow for generate the alerts.
+	 * @return the initial PublicTransportCenter instance.
+	 */
 	public PublicTransportCenter sendInitialValuesRequest(ConnectionWindowJF connectionWindow) {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
-		ConnectionWindowMainJP mainJP = connectionWindow.getMainJP();
+		MainJP mainJP = connectionWindow.getMainJP();
 
 		mainJP.addTextInformationJTA("ClientRequestSocket loading initial values...");
 		mainJP.addTextInformationJTA("Send initial values request...");
@@ -60,11 +76,11 @@ public class InitialValuesConnection {
 					clientSocket.getOutputStream());
 
 			pTC = (PublicTransportCenter) serverDataSended.readObject();
-
+			
 			if (pTC != null) {
 				sendData.writeObject("true");
 				mainJP.addTextInformationJTA("Initial values loaded succefully.");
-
+				
 				return pTC;
 			}
 

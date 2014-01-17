@@ -1,6 +1,5 @@
 package controller.windowCreation;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -15,9 +14,8 @@ import util.Alert;
 import util.Util;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * Controller for the window creation.
  */
 public class WindowCreationController {
 	private WindowCreationJF windowCreation;
@@ -30,14 +28,20 @@ public class WindowCreationController {
 		ArrayList<String> drivers = pTC.getDriversName();
 		ArrayList<String> routes = pTC.getRoutesName();
 		windowCreation = new WindowCreationJF(drivers, routes);
+		windowCreation.getBusCreationJSP().setImage();
+		windowCreation.getDriverCreationJSP().setImage();
 	}
 
+	/**
+	 * Returns the windowCreationJF instance..
+	 * @return the windowCreationJF instance.
+	 */
 	public WindowCreationJF getWindowCreation() {
 		return windowCreation;
 	}
 
 	/**
-	 * return true if the bus was created succefully, if the bus exist then
+	 * return true if the bus was created successful, if the bus exist then
 	 * return false.
 	 * 
 	 * @param id
@@ -50,6 +54,7 @@ public class WindowCreationController {
 	 *            the bus's route name.
 	 * @param position
 	 *            the bus's position.
+	 * @param parent the parent send the alerts.
 	 * @return true if the bus was created, else return false.
 	 */
 	public boolean addNewBus(String id, String driver, String plate, String route, String position, JFrame parent) {
@@ -60,7 +65,7 @@ public class WindowCreationController {
 
 		Bus bus = new Bus(id, tempDriver, plate, tempRoute, 0, tempPosition, true);
 		bus.setStartTime(GregorianCalendar.getInstance());
-		System.out.println(bus.getStartTime());
+
 		if(!pTC.getBuses().contains(bus))
 		{
 			pTC.addBus(bus);
@@ -73,12 +78,13 @@ public class WindowCreationController {
 	}
 
 	/**
-	 * return true if the driver was created succefully, if the driver exist
+	 * return true if the driver was created successful, if the driver exist
 	 * then return false.
 	 * 
 	 * @param id the driver's id.
 	 * @param name the driver's name.
 	 * @param lastName the driver's lastName.
+	 * @param parent the parent send the alerts.
 	 * @return true if was created or false if not.
 	 */
 	public boolean addNewDriver(String id, String name, String lastName, JFrame parent) {
@@ -96,9 +102,8 @@ public class WindowCreationController {
 		return false;
 	}
 
-	// Revisar position
 	/**
-	 * Returns a message with the fields that not be valids in the
+	 * Returns a message with the fields that not be valid in the
 	 * windowCreationBus.
 	 * 
 	 * @param id
@@ -131,7 +136,7 @@ public class WindowCreationController {
 	}
 
 	/**
-	 * Returns a message with the fields that not be valids in the
+	 * Returns a message with the fields that not be valid in the
 	 * windowCreationDriver.
 	 * 
 	 * @param id
@@ -160,6 +165,9 @@ public class WindowCreationController {
 		windowCreation.getBusCreationJSP().getBusCreationJP().addDrivers(name);
 	}
 
+	/**
+	 * Sets the JButtons MouseListener to the buttons in the WindowCreationJF. 
+	 */
 	public void setJButtonsMouseListener() {
 		WindowCreationJButtonsML windowCreationBL = new WindowCreationJButtonsML();
 		WindowCreationJTextFieldFL windowCreationFL = new WindowCreationJTextFieldFL();
@@ -167,7 +175,7 @@ public class WindowCreationController {
 		windowCreationBL.generateTestBus();
 		// windowCreationBL.generateRandomDrivers(20);
 		// windowCreationBL.generateRandomBuses(10);
-		windowCreation.addButtonActionListener(windowCreationBL);
+		windowCreation.addJButtonsMouseListener(windowCreationBL);
 		windowCreation.addJTextFieldFocusListener(windowCreationFL);
 	}
 }

@@ -12,11 +12,15 @@ import model.Station;
  * 
  */
 public class BusThread extends Thread {
+	/**
+	 * Frequency in miliseconds for refresh the speed and position of every bus.
+	 */
 	public static final int FREQUENCY = 500;
+	/**
+	 * Stop time of every bus in a station.
+	 */
 	public static final int STOP_TIME = 5 * 1000 / FREQUENCY;
 	// public static final int STOP_TIME = 20 * 1000 / FREQUENCY;
-
-	public BusThread() {}
 
 	private void refreshBuses() {
 		PublicTransportCenter pTC;
@@ -29,7 +33,7 @@ public class BusThread extends Thread {
 					bus.setPosition(SpeedPositionCalculator.refreshPosition(bus));
 					bus.setSpeed(SpeedPositionCalculator.refreshSpeed(bus));
 
-					if (bus.getSpeed() < SpeedPositionCalculator.SPEED_DELTA) {
+					if (bus.getSpeed() < SpeedPositionCalculator.SPEED_TOLERANCE) {
 						if(bus.getMovementState() == 3)
 						{
 							bus.setSpeed(0);

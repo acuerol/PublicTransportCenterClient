@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * 
  * @author Alexis Cuero Losada
- * 
+ * Abstracts the real world ways, useful for include nodes between in a route.
  */
 public class Way implements Serializable {
 	/**
@@ -15,7 +15,7 @@ public class Way implements Serializable {
 	private static final long serialVersionUID = 2465918592855998873L;
 	private ArrayList<Double> distances;
 	private ArrayList<Object> nodes;
-	// ver si no es mejro con un TreeMap.
+
 	/**
 	 * Creates a Way instance with all parameters.
 	 * 
@@ -81,9 +81,8 @@ public class Way implements Serializable {
 	}
 
 	/**
-	 * Sets all way nodes .
-	 * 
-	 * @param nodesway nodes.
+	 * Sets all nodes on the way.
+	 * @param nodes the nodes for set to the way.
 	 */
 	public void setNode(ArrayList<Object> nodes) {
 		this.nodes = nodes;

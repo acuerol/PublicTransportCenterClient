@@ -67,6 +67,11 @@ public class Util {
 		return true;
 	}
 
+	/**
+	 * Returns the absolute path of a File[].
+	 * @param files the file to get the absolutePath.
+	 * @return a String with the absolute path of all files.
+	 */
 	public static String getAbsolutePaths(File[] files) {
 		String pathNames = "";
 
@@ -83,6 +88,10 @@ public class Util {
 		return pathNames;
 	}
 
+	/**
+	 * Print for standard out a List of objects.
+	 * @param objects the objects to print.
+	 */
 	public static void printObject(ArrayList<Object> objects) {
 		System.out.println("-------------------------------");
 		for (Object obj : objects) {
@@ -93,8 +102,13 @@ public class Util {
 		}
 	}
 
-	public static boolean isDouble(String position) {
-		char[] characters = position.toCharArray();
+	/**
+	 * Checks if the String is a double.
+	 * @param number the number to check.
+	 * @return true if the numDouble is a double else false.
+	 */
+	public static boolean isDouble(String number) {
+		char[] characters = number.toCharArray();
 		boolean dot = false;
 
 		for (char c : characters) {

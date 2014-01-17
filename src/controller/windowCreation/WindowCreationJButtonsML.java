@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+
 import controller.CentralSystem;
 import model.PublicTransportCenter;
 import view.windowCreation.BusCreationJP;
@@ -14,9 +15,8 @@ import util.Alert;
 import util.RandomClass;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * This class implements MouseListener for handle the event on the JButtons in the windowCreationJF.
  */
 public class WindowCreationJButtonsML implements MouseListener {
 
@@ -28,12 +28,7 @@ public class WindowCreationJButtonsML implements MouseListener {
 
 	/**
 	 * Creates a WindowCreationButtonListener instance related with the
-	 * windowCreation view and cotroller.
-	 * 
-	 * @param windowCreation
-	 *            the JFrame windowCreation
-	 * @param windowCreationController
-	 *            the windowCreation controller.
+	 * windowCreation view and controller.
 	 */
 	public WindowCreationJButtonsML() {
 		windowCreationController = CentralSystem.getCentralSystem().getWindowCreationController();
@@ -52,9 +47,9 @@ public class WindowCreationJButtonsML implements MouseListener {
 		JButton sourceJB = (JButton) event.getSource();
 		
 		if (sourceJB.equals(driverCreationJP.getCreateDriverJB())) {
-			String id = driverCreationJP.getIdText();
-			String name = driverCreationJP.getNameText();
-			String lastName = driverCreationJP.getLastNameText();
+			String id = driverCreationJP.getIdJTF().getText();
+			String name = driverCreationJP.getNameJTF().getText();
+			String lastName = driverCreationJP.getLastNameJTF().getText();
 
 			if (windowCreationController.checkDriverFields(id, name, lastName)) {
 				// System.out.println("Before: " + pTC.getDrivers().size());
@@ -70,11 +65,11 @@ public class WindowCreationJButtonsML implements MouseListener {
 			}
 		} else {
 			if (sourceJB.equals(busCreationJP.getCreateBusJB())) {
-				String id = busCreationJP.getIdText();
+				String id = busCreationJP.getIdJTF().getText();
 				String driver = busCreationJP.getSelectedDriver();
-				String plate = busCreationJP.getPlateText();
+				String plate = busCreationJP.getPlateJTF().getText();
 				String route = busCreationJP.getSelectedRoute();
-				String position = busCreationJP.getPositionText();
+				String position = busCreationJP.getPositionJTF().getText();
 
 				if (windowCreationController.checkBusFields(id, driver, plate,
 						route, position)) {
@@ -154,12 +149,61 @@ public class WindowCreationJButtonsML implements MouseListener {
 
 	}
 
+	/**
+	 * Generates the buses for make test.
+	 */
 	public void generateTestBus() {
+		test00();
 //		test01();
-		test02();
-		test03();
+//		test02();
+//		test03();
 	}
 
+	private void test00() {
+		String id = "B001-Test";
+		String plate = "TES-123";
+		String route = "T47A";
+		String position = "0.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B002-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "1";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B003-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "2";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B004-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "3.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B005-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "4.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B006-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "5.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+		
+		id = "B007-Test";
+		plate = "TES-456";
+		route = "T47A";
+		position = "6.0";
+		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
+	}
+	
+	@SuppressWarnings("unused")
 	private void test01() {
 		String id = "B001-Test";
 		String plate = "TES-123";
@@ -204,6 +248,7 @@ public class WindowCreationJButtonsML implements MouseListener {
 		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
 	}
 	
+	@SuppressWarnings("unused")
 	private void test02() {
 		String id = "B001-Test";
 		String plate = "TES-123";
@@ -248,6 +293,7 @@ public class WindowCreationJButtonsML implements MouseListener {
 		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
 	}
 	
+	@SuppressWarnings("unused")
 	private void test03() {
 		String id = "B001-E21";
 		String plate = "TES-123";
@@ -292,6 +338,10 @@ public class WindowCreationJButtonsML implements MouseListener {
 		windowCreationController.addNewBus(id, null, plate, route, position, windowCreation);
 	}
 	
+	/**
+	 * Use for generate drivers for test.
+	 * @param num the number of drivers to generate.
+	 */
 	public void generateRandomDrivers(int num) {
 		for (int i = 0; i < 10; i++) {
 			String id = RandomClass.getRandomID();
@@ -301,6 +351,11 @@ public class WindowCreationJButtonsML implements MouseListener {
 			windowCreationController.addNewDriver(id, name, lastName, windowCreation);
 		}
 	}
+	
+	/**
+	 * Use for generate buses for test.
+	 * @param num the number of buses to generate.
+	 */
 	public void generateRandomBuses(int num) {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
 		for (int i = 0; i < num; i++) {

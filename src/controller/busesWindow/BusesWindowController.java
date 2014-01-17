@@ -1,35 +1,38 @@
 package controller.busesWindow;
 
-import java.security.AllPermission;
-
 import javax.swing.JTable;
 
-import model.Bus;
 import model.PublicTransportCenter;
 import model.Route;
 import util.Alert;
 import view.busesWindow.BusesWindowJF;
 import view.busesWindow.BusesWindowJTableModel;
-import view.busesWindow.BusesWindowButtonsJP;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * Abstract Class that controls the BusesWindowJF and the methods for get and set information in the JTable
+ * for visualize the buses information.
  */
 public class BusesWindowController {
 
 	private BusesWindowJF busesWindow;
 
+	/**
+	 * Empty constructor for the class, creates the busesWindowJF for show the information in a JTable above a JFrame.
+	 */
 	public BusesWindowController() {
 		busesWindow = new BusesWindowJF();
 	}
 
+	/**
+	 * Returns a Object array with the update data of all buses in the system.
+	 * @return a Object array with the update data of all buses.
+	 */
 	public Object[][] generateData() {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
 		int numBuses = pTC.getBuses().size();
 		String item = (String) busesWindow.getToolsJP().getRoutesJCB().getSelectedItem();
-//		String item = "T47A";
+
 		if(item != "All routes")
 		{
 			Route route = pTC.getRouteByName(item);
@@ -52,6 +55,10 @@ public class BusesWindowController {
 		return data;
 	}
 	
+	/**
+	 * Updates the JTable in the JFrame with the most recent buses data. 
+	 * @param selectedRow the selected row in the JTable, for maintain the same row selected. 
+	 */
 	public void refreshTable(int selectedRow) {
 		JTable busesJT = busesWindow.getTableJP().getBusesJT();
 		BusesWindowJTableModel tableModel = busesWindow.getTableJP()
@@ -68,6 +75,10 @@ public class BusesWindowController {
 		}
 	}
 	
+	/**
+	 * Sends the selected bus, this method change the state of the selected bus to "true" (starts) and refresh
+	 * the system.
+	 */
 	public void sendBusSelected() {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
 		String id = busesWindow.getTableJP().getSelectedBusID();
@@ -85,6 +96,10 @@ public class BusesWindowController {
 		PublicTransportCenter.setPublicTransportCenter(pTC);
 	}
 
+	/**
+	 * Stops the selected bus, this method change the state of the selected bus to "false" (stop) and refresh
+	 * the system.
+	 */
 	public void stopBusSelected() {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
 		String id = busesWindow.getTableJP().getSelectedBusID();
@@ -101,13 +116,20 @@ public class BusesWindowController {
 		
 		PublicTransportCenter.setPublicTransportCenter(pTC);
 	}
+		
+	/**
+	 * Returns the BusesWindowJF instance creates in the constructor.
+	 * @return the BusesWindowJF instance
+	 */
+	public BusesWindowJF getBusesWindow() {
+		return busesWindow;
+	}
 	
+	/**
+	 * Sets the MouseListener for the JButtons at the panel in the JFrame which contains. 
+	 */
 	public void setJButtonsMouseListener() {
 		BusesWindowJButtonsML mouseListener = new BusesWindowJButtonsML();
 		busesWindow.getButtonsJP().setButtonsMouseListener(mouseListener);
-	}
-	
-	public BusesWindowJF getBusesWindow() {
-		return busesWindow;
 	}
 }

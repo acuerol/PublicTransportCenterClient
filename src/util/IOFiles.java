@@ -432,6 +432,11 @@ public class IOFiles {
 		return true;
 	}
 
+	/**
+	 * Reads a file and return a ArrayList<String> with the lines in the file. 
+	 * @param pathName the path of the file.
+	 * @return a ArrayList<String> with the lines in the file.
+	 */
 	public static ArrayList<String> readFile(String pathName) {
 		File file = new File(pathName);
 		ArrayList<String> lines = new ArrayList<String>();

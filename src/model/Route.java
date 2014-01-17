@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 
  * @author Alexis Cuero Losada
- * 
+ * Abstracts the real world routes with attributes name, and the way.
  */
 public class Route implements Serializable {
 	/**
@@ -15,6 +15,10 @@ public class Route implements Serializable {
 	private String name;
 	private Way way;
 
+	/**
+	 * Returns the route way.
+	 * @return the route way.
+	 */
 	public Way getWay() {
 		return way;
 	}

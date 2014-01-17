@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * 
  * @author Alexis Cuero Losada
- * 
+ * Abstracts the real world semaphores.
  */
 public class Semaphore implements Serializable {
 	/**
@@ -43,14 +43,26 @@ public class Semaphore implements Serializable {
 		this.timeGreen = timeGreen;
 	}
 
+	/**
+	 * Returns the semaphore id.
+	 * @return the semaphore id.
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the semaphore state true = green, false = re .
+	 * @param state the semaphore state.
+	 */
 	public void setState(boolean state) {
 		this.state = state;
 	}
 
+	/**
+	 * The timer that count the seconds for change the state.
+	 * @param time the actual time at the semaphore.
+	 */
 	public void setTime(int time) {
 		this.time = time;
 	}
@@ -59,7 +71,7 @@ public class Semaphore implements Serializable {
 	 * Add a node to the child nodes.
 	 * 
 	 * @param node
-	 *            the node to be added yo children
+	 *            the node to be added to children
 	 */
 	public void addChild(Object node) {
 		if (children == null) {

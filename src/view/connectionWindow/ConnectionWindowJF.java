@@ -1,32 +1,19 @@
 package view.connectionWindow;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-
-import controller.CentralSystem;
 import controller.connectionWindow.ConnectionWindowJButtonsML;
-import model.PublicTransportCenter;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * This class extends of JFrame and is the GUI for show the connection options. 
  */
 public class ConnectionWindowJF extends JFrame {
 
 	private static final long serialVersionUID = 3569827843202487590L;
 
-	private CentralSystem centralSystem;
-	private ConnectionWindowMainJP mainJP;
-	private ConnectionWindowButtonsJP buttonsJP;
+	private MainJP mainJP;
+	private ButtonsJP buttonsJP;
 
 	/**
 	 * Create a MainWindowJF instance.
@@ -46,23 +33,34 @@ public class ConnectionWindowJF extends JFrame {
 	 * Instance all components in the MainWindowJF.
 	 */
 	private void setAppearance() {
-		mainJP = new ConnectionWindowMainJP();
-		buttonsJP = new ConnectionWindowButtonsJP();
+		mainJP = new MainJP();
+		buttonsJP = new ButtonsJP();
 
 		add(mainJP, BorderLayout.CENTER);
 		add(buttonsJP, BorderLayout.SOUTH);
 	}
 
-	public void setJButtonsMouseListeners() {
-		ConnectionWindowJButtonsML mouseListener = new ConnectionWindowJButtonsML();
-		buttonsJP.setJButtonsMouseListener(mouseListener);
-	}
-
-	public ConnectionWindowMainJP getMainJP() {
+	/**
+	 * Returns the {@link MainJP} instance in this JFrame.
+	 * @return the {@link MainJP}
+	 */
+	public MainJP getMainJP() {
 		return mainJP;
 	}
 
-	public ConnectionWindowButtonsJP getButtonsJP() {
+	/**
+	 * Returns the {@link ButtonsJP} instance in this JFrame.
+	 * @return the {@link ButtonsJP}
+	 */
+	public ButtonsJP getButtonsJP() {
 		return buttonsJP;
+	}
+	
+	/**
+	 * Sets the MouseListener class for handle the mouse events.
+	 */
+	public void setJButtonsMouseListeners() {
+		ConnectionWindowJButtonsML mouseListener = new ConnectionWindowJButtonsML();
+		buttonsJP.setJButtonsMouseListener(mouseListener);
 	}
 }
