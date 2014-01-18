@@ -83,7 +83,7 @@ public class BusCreationJP extends JPanel {
 		positionJL = new JLabel("Position: ");
 
 		randomJB = new JButton("Random");
-		random10JB = new JButton("10 Random");
+		random10JB = new JButton("10 Random Buses");
 
 		idJTF = new JTextField(ID);
 		idJTF.setForeground(Color.GRAY);

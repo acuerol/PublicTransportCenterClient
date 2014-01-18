@@ -1,5 +1,6 @@
 package view.graphicSystem;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class ToolsJP extends JPanel {
 	 * Constructor that instance the elements into this JPanel.
 	 */
 	public ToolsJP() {
+		setBackground(Color.WHITE);
 		setLayout(new FlowLayout());
 		setElements();
 	}
@@ -44,7 +46,7 @@ public class ToolsJP extends JPanel {
 		
 		add(selectRoute);
 		add(routesJCB);
-		add(sliderJS);
+//		add(sliderJS);
 	}
 
 	/**

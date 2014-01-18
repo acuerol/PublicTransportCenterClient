@@ -1,6 +1,7 @@
 package view.windowCreation;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class WindowCreationJF extends JFrame {
 		setSize(600, 600);
 		setApareance(drivers, routes);
 		setLocationRelativeTo(null);
+		setBackground(Color.WHITE);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

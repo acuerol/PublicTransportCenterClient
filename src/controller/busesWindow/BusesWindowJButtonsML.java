@@ -8,7 +8,6 @@ import view.busesWindow.ButtonsJP;
 import controller.CentralSystem;
 
 /**
- * 
  * @author Alexis Cuero Losada.
  * This class implements MouseListener for handle the mouse event of the buttons in the BusesWindowJF.
  */

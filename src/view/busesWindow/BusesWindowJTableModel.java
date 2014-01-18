@@ -3,7 +3,6 @@ package view.busesWindow;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * The tableModel for the JTable of busesWindow, this allow refresh the JTable of secure form, so this 
  * defined a style for show the text in JTable and limit actions.

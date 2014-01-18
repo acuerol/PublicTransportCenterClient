@@ -8,9 +8,7 @@ import java.io.Serializable;
  * Abstracts the real world routes with attributes name, and the way.
  */
 public class Route implements Serializable {
-	/**
-	 * The Route serialVersionUID
-	 */
+
 	private static final long serialVersionUID = 1292163716323103404L;
 	private String name;
 	private Way way;

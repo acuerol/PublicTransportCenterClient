@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import util.UtilCalc;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * The most important class in the system, is related with all other classes.
  */

@@ -1,7 +1,10 @@
 package view.graphicSystem;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JFrame;
+
 import controller.graphicSystem.GraphicSystemJButtonsML;
 import controller.graphicSystem.GraphicSystemJComboBoxIL;
 
@@ -31,6 +34,7 @@ public class GraphicSystemJF extends JFrame {
 	}
 
 	private void setApareance() {
+		setBackground(Color.WHITE);
 		setLayout(new BorderLayout());
 		buttonsJP = new ButtonsJP();
 		mapJP = new MapJP();

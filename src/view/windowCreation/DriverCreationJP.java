@@ -68,7 +68,7 @@ public class DriverCreationJP extends JPanel {
 		lastNameJL = new JLabel("Last name:");
 
 		randomJB = new JButton("Random");
-		random10JB = new JButton("10 Random");
+		random10JB = new JButton("10 Random Drivers");
 
 		idJTF = new JTextField(ID);
 		idJTF.setForeground(Color.GRAY);

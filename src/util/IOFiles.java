@@ -26,7 +26,7 @@ public class IOFiles {
 
 	/**
 	 * Load a file with a specific format and return a list with all roads
-	 * readed in the file.
+	 * read in the file.
 	 * 
 	 * @param pathName
 	 *            the file path in the disk.
@@ -89,7 +89,7 @@ public class IOFiles {
 
 	/**
 	 * Load a file with a specific format and return a list with all routes
-	 * readed in the file.
+	 * read in the file.
 	 * 
 	 * @param pathName
 	 *            the file path in the disk.
@@ -139,7 +139,7 @@ public class IOFiles {
 
 	/**
 	 * Load a file with a specific format and return a list with all semaphores
-	 * readed in the file.
+	 * read in the file.
 	 * 
 	 * @param pathName
 	 *            the file path in the disk.
@@ -197,7 +197,7 @@ public class IOFiles {
 
 	/**
 	 * Load a file with a specific format and return a list with all stations
-	 * readed in the file.
+	 * read in the file.
 	 * 
 	 * @param pathName
 	 *            the file path in the disk.
@@ -274,7 +274,7 @@ public class IOFiles {
 	 *            The lines to be write in the file.
 	 * @param pathName
 	 *            The file route in the disk.
-	 * @return true if the file was writed succefully.
+	 * @return true if the file was written successfully.
 	 */
 	public static boolean writeFile(ArrayList<String> lines, String pathName) {
 		File file = new File(pathName);
@@ -300,7 +300,7 @@ public class IOFiles {
 	}
 
 	/**
-	 * Write a file with the clean roads data extracted of tke kml file, this
+	 * Write a file with the clean roads data extracted of the kml file, this
 	 * create a new format for the data reading.
 	 * 
 	 * @param pathName
@@ -311,7 +311,7 @@ public class IOFiles {
 	 *            the list with all reads coordinates.
 	 * @exception IOException
 	 *                error writing the file.
-	 * @return true if the file was writing succefully.
+	 * @return true if the file was writing successfully.
 	 */
 	public static boolean writeRoadsFile(String pathName,
 			ArrayList<String> names, ArrayList<String> coordinates) {
@@ -339,7 +339,7 @@ public class IOFiles {
 	}
 
 	/**
-	 * Write a file with the clean semaphores data extracted of tke kml file,
+	 * Write a file with the clean semaphores data extracted of the kml file,
 	 * this create a new format for the data reading.
 	 * 
 	 * @param pathName
@@ -353,7 +353,7 @@ public class IOFiles {
 	 *            the list with all semaphores coordinates.
 	 * @exception IOException
 	 *                error writing the file.
-	 * @return true if the file was writing succefully.
+	 * @return true if the file was writing successfully.
 	 */
 	public static boolean writeSemaphoresFile(String pathName,
 			ArrayList<String> names, ArrayList<String[]> times,
@@ -384,7 +384,7 @@ public class IOFiles {
 	}
 
 	/**
-	 * Write a file with the clean stations data extracted of tke kml file, this
+	 * Write a file with the clean stations data extracted of the kml file, this
 	 * create a new format for the data reading.
 	 * 
 	 * @param pathName
@@ -397,7 +397,7 @@ public class IOFiles {
 	 *            the list with the all stations states.
 	 * @exception IOException
 	 *                error writing the file.
-	 * @return true if the file was writing succefully.
+	 * @return true if the file was writing successfully.
 	 */
 	public static boolean writeStationsFile(String pathName,
 			ArrayList<String> sNames, ArrayList<String[]> sCoordinates,

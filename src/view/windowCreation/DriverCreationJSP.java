@@ -1,5 +1,6 @@
 package view.windowCreation;
 
+import java.awt.Color;
 import java.awt.Image;
 
 import javax.swing.Icon;
@@ -27,6 +28,7 @@ public class DriverCreationJSP extends JSplitPane {
 	 * Constructor that initialize the JSplitPanel with the {@link DriverCreationJP} and the split.
 	 */
 	public DriverCreationJSP() {
+		setBackground(Color.WHITE);
 		setOrientation(JSplitPane.VERTICAL_SPLIT);
 		setDividerLocation(SPLIT_POSITION);
 		setElements();

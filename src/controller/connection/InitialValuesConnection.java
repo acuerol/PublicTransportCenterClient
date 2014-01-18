@@ -14,9 +14,8 @@ import view.connectionWindow.MainJP;
 import util.Alert;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * This class is used for send a request to the server for initial values.
  */
 public class InitialValuesConnection {
 

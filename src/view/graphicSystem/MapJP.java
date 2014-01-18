@@ -1,9 +1,11 @@
 package view.graphicSystem;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+
 import model.graphicSystem.BusLabel;
 import model.graphicSystem.SemaphoreLabel;
 import model.graphicSystem.StationLabel;
@@ -34,6 +36,7 @@ public class MapJP extends JPanel {
 	 * Instances all elements into this JPanel.
 	 */
 	public MapJP() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBorder(BorderFactory.createTitledBorder("Map"));
 	}

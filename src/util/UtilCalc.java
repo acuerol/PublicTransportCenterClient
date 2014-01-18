@@ -6,9 +6,8 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * This class offer several methods for convert the information of files to information easily for manage.
  */
 public class UtilCalc {
 

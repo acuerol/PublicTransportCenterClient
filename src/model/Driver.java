@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * Abstracts the real world drivers with attributes the name, lastName and id 
  */
@@ -18,7 +17,7 @@ public class Driver implements Serializable {
 	private String name;
 
 	/**
-	 * Creates a Drvier with all parameters-
+	 * Creates a Driver with all parameters-
 	 * 
 	 * @param id
 	 *            the driver identification document.

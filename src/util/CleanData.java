@@ -15,14 +15,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * This class contain several methods for clean the data and generate new files with the clean data.
  */
 public class CleanData {
 	/**
-	 * Return true if the roads data was sucefully extrated of the kml file,
-	 * else return false.
+	 * Return true if the roads data was successfully extracted of the kml file, else return false.
 	 * 
 	 * @param pathName
 	 *            the file path in the disk.
@@ -76,8 +74,7 @@ public class CleanData {
 	}
 
 	/**
-	 * Return true if the routes data was sucefully extrated of the text files,
-	 * else return false.
+	 * Return true if the routes data was successfully extracted of the kml file, else return false.
 	 * 
 	 * @param paths
 	 *            the file paths in the disk.
@@ -122,7 +119,7 @@ public class CleanData {
 	}
 
 	/**
-	 * Return true if the semaphores data was sucefully extrated of the kml
+	 * Return true if the semaphores data was successfully extracted of the txt
 	 * file, else return false.
 	 * 
 	 * @param pathName
@@ -192,8 +189,7 @@ public class CleanData {
 	}
 
 	/**
-	 * Return true if the station data was sucefully extrated of the kml file,
-	 * else return false.
+	 * Return true if the station data was successfully extracted of the kml file, else return false.
 	 * 
 	 * @param pathName
 	 *            the file path in the disk.

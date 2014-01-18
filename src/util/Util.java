@@ -8,7 +8,7 @@ import model.Station;
 
 /**
  * @author Alexis Cuero Losada
- * 
+ * This class offer several methods for validate fields and get specific attributes of objects.
  */
 public class Util {
 
@@ -98,7 +98,7 @@ public class Util {
 			if (obj instanceof Station)
 				System.out.println(((Station) (obj)).getName());
 			if (obj instanceof Semaphore)
-				System.out.println(((Semaphore) (obj)).getID());
+				System.out.println(((Semaphore) (obj)).getId());
 		}
 	}
 

@@ -3,9 +3,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
  * @author Alexis Cuero Losada
- * 
+ * This class is the abstraction of graph for sort the nodes and edges.
  */
 public class Graph implements Serializable {
 
@@ -14,20 +13,18 @@ public class Graph implements Serializable {
 	 */
 	public static int countNodes;
 	
-	/**
-	 * The Graph serialVersionUID.
-	 */
 	private static final long serialVersionUID = 367984052472116448L;
+	
 	private ArrayList<Object> nodes = new ArrayList<Object>();
 
 	/**
 	 * Creates a edge in the direction father to child.
 	 * 
 	 * @param father
-	 *            the father node that constains to the child.
+	 *            the father node that constrains to the child.
 	 * @param child
 	 *            the child node content in the father.
-	 * @return returns true if the child was added succefully, else returns
+	 * @return returns true if the child was added successfully, else returns
 	 *         false.
 	 */
 	public boolean addEdge(Object father, Object child) {
@@ -60,7 +57,7 @@ public class Graph implements Serializable {
 	 * Creates all edges between nodes.
 	 * 
 	 * @param roads
-	 *            teh roads that join the nodes.
+	 *            the roads that join the nodes.
 	 */
 	public void addListBidirectionalEdge(ArrayList<Road> roads) {
 		ArrayList<Object> attached;
@@ -79,7 +76,7 @@ public class Graph implements Serializable {
 	 * Creates all edges between nodes.
 	 * 
 	 * @param roads
-	 *            teh roads that join the nodes.
+	 *            the roads that join the nodes.
 	 */
 	public void addListEdge(ArrayList<Road> roads) {
 		ArrayList<Object> attached;
@@ -129,7 +126,7 @@ public class Graph implements Serializable {
 	 *            the data that represent the node A.
 	 * @param nodeB
 	 *            the data that represent the node B.
-	 * @return if the edge was created succefully.
+	 * @return if the edge was created successfully.
 	 */
 	public boolean addTwoWayEdge(Object nodeA, Object nodeB) {
 		if (addEdge(nodeA, nodeB) && addEdge(nodeB, nodeA)) {
@@ -179,13 +176,13 @@ public class Graph implements Serializable {
 	}
 
 	/**
-	 * Returns true if father childNodes constains to child.
+	 * Returns true if father childNodes contains to child.
 	 * 
 	 * @param father
 	 *            the node that probably contains to child.
 	 * @param child
 	 *            the node that probably is content in father childNodes.
-	 * @return true if father childNodes constains to child.
+	 * @return true if father childNodes constrains to child.
 	 */
 	public boolean isChild(Object father, Object child) {
 		if (nodes.contains(father) && nodes.contains(child)) {

@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 import util.UtilCalc;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * Abstracts the real world buses with attributes as the id, the driver, plate, position, speed...
  */
@@ -231,7 +230,7 @@ public class Bus implements Serializable, Comparable<Bus> {
 	}
 
 	/**
-	 * Sets a Date instance that contains the date util the next stop station.
+	 * Sets a Date instance that contains the date until the next stop station.
 	 * 
 	 * @param nextStopTime
 	 *            the date until the next stop station.

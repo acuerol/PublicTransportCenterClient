@@ -1,6 +1,8 @@
 package view.busesWindow;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -25,6 +27,7 @@ public class BusesWindowJF extends JFrame {
 		setSize(600, 400);
 		setApareance();
 		setLocationRelativeTo(null);
+		setBackground(Color.WHITE);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 	}

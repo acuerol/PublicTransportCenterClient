@@ -1,7 +1,10 @@
 package view.connectionWindow;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JFrame;
+
 import controller.connectionWindow.ConnectionWindowJButtonsML;
 
 /**
@@ -25,6 +28,7 @@ public class ConnectionWindowJF extends JFrame {
 		setAppearance();
 		setLocationRelativeTo(null);
 		setResizable(false);
+		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}

@@ -1,5 +1,6 @@
 package view.busesWindow;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.MouseListener;
 
@@ -22,6 +23,7 @@ public class ButtonsJP extends JPanel {
 	 * Constructor that set the initial attributes.
 	 */
 	public ButtonsJP() {
+		setBackground(Color.WHITE);
 		setLayout(new FlowLayout());
 		setElements();
 	}
@@ -62,7 +64,7 @@ public class ButtonsJP extends JPanel {
 
 	/**
 	 * Sets the MouseListener to all JButtons in the panel.
-	 * @param mouseListener a class that implemants MouseListener for manage the Mouse events.
+	 * @param mouseListener a class that implements MouseListener for manage the Mouse events.
 	 */
 	public void setButtonsMouseListener(MouseListener mouseListener) {
 		sendBusJB.addMouseListener(mouseListener);

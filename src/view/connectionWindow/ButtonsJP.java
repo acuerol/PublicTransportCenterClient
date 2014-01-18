@@ -57,7 +57,7 @@ public class ButtonsJP extends JPanel {
 
 	/**
 	 * Adds a ActionListener to the JButton connectJB.
-	 * @param mouseListener the ActionListener for connectJB.
+	 * @param mouseListener the MouseListener for connectJB.
 	 */
 	public void setJButtonsMouseListener(MouseListener mouseListener) {
 		connectJB.addMouseListener(mouseListener);

@@ -3,6 +3,8 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import util.UtilCalc;
+
 /**
  * 
  * @author Alexis Cuero Losada
@@ -86,6 +88,28 @@ public class Way implements Serializable {
 	 */
 	public void setNode(ArrayList<Object> nodes) {
 		this.nodes = nodes;
+	}
+	
+	/**
+	 * Returns a String representation of all nodes with the distances in the middle.
+	 * @return a String representation of all nodes
+	 */
+	public String toStringNodesDistances()
+	{
+		String way = "";
+		for (int i = 0 ; i < nodes.size() ; i++)
+		{
+			if(nodes.get(i) instanceof Station)
+			{
+				way += (" --" + UtilCalc.round(distances.get(i), 2) + "-- " + ((Station)(nodes.get(i))).getName());
+			}
+			else
+			{
+				way += (" --" + UtilCalc.round(distances.get(i), 2) + "-- " + ((Semaphore)(nodes.get(i))).getId());
+			}
+		}
+		
+		return way;
 	}
 
 	@Override

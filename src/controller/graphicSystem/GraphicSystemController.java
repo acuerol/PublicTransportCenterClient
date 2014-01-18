@@ -13,7 +13,6 @@ import model.graphicSystem.SemaphoreLabel;
 import model.graphicSystem.StationLabel;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * Class for controller the graphic system, from here the nodes are generate.
  */

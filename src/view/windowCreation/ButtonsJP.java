@@ -1,5 +1,6 @@
 package view.windowCreation;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.MouseListener;
 
@@ -22,6 +23,7 @@ public class ButtonsJP extends JPanel {
 	 * Constructor that initialize all JButtons in th panel.
 	 */
 	public ButtonsJP() {
+		setBackground(Color.WHITE);
 		setLayout(new FlowLayout());
 		setElements();
 	}

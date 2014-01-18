@@ -1,6 +1,7 @@
 package view.busesWindow;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -9,7 +10,7 @@ import javax.swing.JTable;
 
 /**
  * @author Alexis Cuero Losada
- * Class that exteds of JPanel for contain the Jtable of JFrame.
+ * Class that extends of JPanel for contain the JTable of JFrame.
  */
 public class TableJP extends JPanel {
 
@@ -18,28 +19,20 @@ public class TableJP extends JPanel {
 	private JTable busesJT;
 	private JScrollPane scrollJSP;
 	private BusesWindowJTableModel tableModel;
-	private Object[][] data;
 
 	/**
-	 * Contructor that initialize the element into the JPanel.
+	 * Constructor that initialize the element into the JPanel.
 	 */
 	public TableJP() {
+		setBackground(Color.WHITE);
 		setElements();
-	}
-
-	/**
-	 * Returns the JTable of the panel.
-	 * @return the JTable of the panel
-	 */
-	public JTable getBusesJT() {
-		return busesJT;
 	}
 
 	private void setElements() {
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createTitledBorder("Buses Information"));
 
-		data = new Object[1][11];
+		Object[][] data = new Object[1][11];
 		String[] columnsNames = {"id", "Driver", "Plate", "Route",
 				"Next Stop Station", "State", "Speed", "Position", "Next Node",
 				"Movement State", "Acceleration"};
@@ -51,6 +44,14 @@ public class TableJP extends JPanel {
 		busesJT.setFillsViewportHeight(true);
 
 		add(scrollJSP, BorderLayout.CENTER);
+	}
+	
+	/**
+	 * Returns the JTable of the panel.
+	 * @return the JTable of the panel
+	 */
+	public JTable getBusesJT() {
+		return busesJT;
 	}
 
 	/**

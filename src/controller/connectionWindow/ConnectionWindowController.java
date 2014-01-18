@@ -3,7 +3,6 @@ package controller.connectionWindow;
 import view.connectionWindow.ConnectionWindowJF;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * Controller for the connection window.
  */

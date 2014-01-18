@@ -15,13 +15,13 @@ import view.busesWindow.BusesWindowJTableModel;
  */
 public class BusesWindowController {
 
-	private BusesWindowJF busesWindow;
+	private BusesWindowJF busesWindowJF;
 
 	/**
 	 * Empty constructor for the class, creates the busesWindowJF for show the information in a JTable above a JFrame.
 	 */
 	public BusesWindowController() {
-		busesWindow = new BusesWindowJF();
+		busesWindowJF = new BusesWindowJF();
 	}
 
 	/**
@@ -31,7 +31,7 @@ public class BusesWindowController {
 	public Object[][] generateData() {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
 		int numBuses = pTC.getBuses().size();
-		String item = (String) busesWindow.getToolsJP().getRoutesJCB().getSelectedItem();
+		String item = (String) busesWindowJF.getToolsJP().getRoutesJCB().getSelectedItem();
 
 		if(item != "All routes")
 		{
@@ -60,8 +60,8 @@ public class BusesWindowController {
 	 * @param selectedRow the selected row in the JTable, for maintain the same row selected. 
 	 */
 	public void refreshTable(int selectedRow) {
-		JTable busesJT = busesWindow.getTableJP().getBusesJT();
-		BusesWindowJTableModel tableModel = busesWindow.getTableJP()
+		JTable busesJT = busesWindowJF.getTableJP().getBusesJT();
+		BusesWindowJTableModel tableModel = busesWindowJF.getTableJP()
 				.getTableModel();
 		Object[][] data = generateData();
 
@@ -81,16 +81,16 @@ public class BusesWindowController {
 	 */
 	public void sendBusSelected() {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
-		String id = busesWindow.getTableJP().getSelectedBusID();
+		String id = busesWindowJF.getTableJP().getSelectedBusID();
 
 		if (!id.equals("")) {
 			if (!pTC.getBusByID(id).getState()) {
 				pTC.getBusByID(id).setState(true);
 			} else {
-				Alert.launchErrorMessage("The bus is running.", busesWindow);
+				Alert.launchErrorMessage("The bus is running.", busesWindowJF);
 			}
 		} else {
-			Alert.launchErrorMessage("Please select a bus.", busesWindow);
+			Alert.launchErrorMessage("Please select a bus.", busesWindowJF);
 		}
 
 		PublicTransportCenter.setPublicTransportCenter(pTC);
@@ -102,16 +102,16 @@ public class BusesWindowController {
 	 */
 	public void stopBusSelected() {
 		PublicTransportCenter pTC = PublicTransportCenter.getPublicTransportCenter();
-		String id = busesWindow.getTableJP().getSelectedBusID();
+		String id = busesWindowJF.getTableJP().getSelectedBusID();
 
 		if (!id.equals("")) {
 			if (pTC.getBusByID(id).getState()) {
 				pTC.getBusByID(id).setState(false);
 			} else {
-				Alert.launchErrorMessage("The bus is stopped.", busesWindow);
+				Alert.launchErrorMessage("The bus is stopped.", busesWindowJF);
 			}
 		} else {
-			Alert.launchErrorMessage("Please select a bus.", busesWindow);
+			Alert.launchErrorMessage("Please select a bus.", busesWindowJF);
 		}
 		
 		PublicTransportCenter.setPublicTransportCenter(pTC);
@@ -122,7 +122,7 @@ public class BusesWindowController {
 	 * @return the BusesWindowJF instance
 	 */
 	public BusesWindowJF getBusesWindow() {
-		return busesWindow;
+		return busesWindowJF;
 	}
 	
 	/**
@@ -130,6 +130,6 @@ public class BusesWindowController {
 	 */
 	public void setJButtonsMouseListener() {
 		BusesWindowJButtonsML mouseListener = new BusesWindowJButtonsML();
-		busesWindow.getButtonsJP().setButtonsMouseListener(mouseListener);
+		busesWindowJF.getButtonsJP().setButtonsMouseListener(mouseListener);
 	}
 }

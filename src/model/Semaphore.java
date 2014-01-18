@@ -5,14 +5,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * Abstracts the real world semaphores.
  */
 public class Semaphore implements Serializable {
-	/**
-	 * The Semaphore serialVersionUID
-	 */
+
 	private static final long serialVersionUID = 8286679660561586733L;
 	private ArrayList<Object> children;
 	private String id;
@@ -112,14 +109,6 @@ public class Semaphore implements Serializable {
 		return children;
 	}
 
-	/**
-	 * Returns the semaphore id.
-	 * 
-	 * @return the semaphore id.
-	 */
-	public String getID() {
-		return id;
-	}
 
 	/**
 	 * Returns the semaphore position.

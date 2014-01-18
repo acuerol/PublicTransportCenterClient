@@ -1,5 +1,6 @@
 package view.windowCreation;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
 
@@ -30,6 +31,7 @@ public class BusCreationJSP extends JSplitPane {
 	 * @param routes the routes names.
 	 */
 	public BusCreationJSP(ArrayList<String> drivers, ArrayList<String> routes) {
+		setBackground(Color.WHITE);
 		setOrientation(JSplitPane.VERTICAL_SPLIT);
 		setDividerLocation(SPLIT_POSITION);
 		setElements(drivers, routes);

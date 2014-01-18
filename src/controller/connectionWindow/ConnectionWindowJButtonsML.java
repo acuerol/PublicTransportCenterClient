@@ -9,7 +9,6 @@ import controller.CentralSystem;
 import view.connectionWindow.ButtonsJP;
 
 /**
- * 
  * @author Alexis Cuero Losada
  * This class implements MouseListener for handle the event on the JButtons in the connectionWindowJF.  
  */

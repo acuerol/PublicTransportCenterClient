@@ -1,5 +1,6 @@
 package view.busesWindow;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class ToolsJP extends JPanel {
 	 * Constructor that set the elements into the this JPanel.  
 	 */
 	public ToolsJP() {
+		setBackground(Color.WHITE);
 		setLayout(new FlowLayout());
 		setElements();
 	}
